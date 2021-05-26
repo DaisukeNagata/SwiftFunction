@@ -3,7 +3,7 @@ struct SwiftFunction {
 }
 
 public class ForAction {
-    func forAction(start: Int, end: Int) {
+    public func forAction(start: Int, end: Int) {
         for i in start..<end {
             print(i)
         }
