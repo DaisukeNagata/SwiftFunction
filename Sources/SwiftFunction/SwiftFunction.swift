@@ -7,7 +7,7 @@ public class ForAction: NSObject {
         }
     }
     
-    func forEatchAction<I>(index: [I]) {
+    public func forEatchAction<I>(index: [I]) {
         index.forEach { i in
             print(i)
         }
