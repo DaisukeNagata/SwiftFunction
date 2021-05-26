@@ -7,5 +7,12 @@
             // Use XCTAssert and related functions to verify your tests produce the correct
             // results.
             XCTAssertEqual(SwiftFunction().text, "Hello, World!")
+            forAction(start: 0, end: 10)
+        }
+    }
+
+    func forAction(start: Int, end: Int) {
+        for i in start..<end {
+            print(i)
         }
     }
