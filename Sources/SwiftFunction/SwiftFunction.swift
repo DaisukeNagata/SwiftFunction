@@ -6,4 +6,10 @@ public class ForAction: NSObject {
             print(i)
         }
     }
+    
+    func forEatchAction<I>(index: [I]) {
+        index.forEach { i in
+            print(i)
+        }
+    }
 }
