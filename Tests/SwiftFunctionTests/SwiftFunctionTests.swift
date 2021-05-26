@@ -7,7 +7,8 @@
             // Use XCTAssert and related functions to verify your tests produce the correct
             // results.
 //            XCTAssertEqual(SwiftFunction.text, "Hello, World!")
-            forEatchAction(index: [1,2,3])
+//            forEatchAction(index: [1,2,3])
+            forInstanceAction(instance: [1,2,3])
         }
     }
 
@@ -20,5 +21,11 @@
     func forEatchAction<I>(index: [I]) {
         index.forEach { i in
             print(i)
+        }
+    }
+
+    func forInstanceAction<I>(instance: [I]) {
+        for index in instance {
+            print(index)
         }
     }
