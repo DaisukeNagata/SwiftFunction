@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class EnumFunction {
+public class EnumFunction: NSObject {
 
     public enum ABC<E> {
         case a,b,c
