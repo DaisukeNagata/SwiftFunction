@@ -6,13 +6,13 @@ public class ForAction: NSObject {
             print(i)
         }
     }
-    
+
     public func forEatchAction<I>(index: [I]) {
         index.forEach { i in
             print(i)
         }
     }
-    
+
     public func forInstanceAction<I>(instance: [I]) {
         for index in instance {
             print(index)

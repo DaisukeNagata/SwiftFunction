@@ -3,6 +3,7 @@
 
     final class SwiftFunctionTests: XCTestCase {
         var f =  ForAction()
+        var e =  EnumFunction()
         func testExample() {
             // This is an example of a functional test case.
             // Use XCTAssert and related functions to verify your tests produce the correct
@@ -12,7 +13,7 @@
             f.forEatchAction(index: [1,2,3])
             f.forInstanceAction(instance: [1,2,3])
             f.forEnumerated(instance: [1,2,3])
-                
+            e.abcEnum(e: EnumFunction.ABC.a)
         }
     }
 
