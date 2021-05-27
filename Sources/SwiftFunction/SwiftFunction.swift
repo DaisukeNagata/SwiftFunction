@@ -18,4 +18,11 @@ public class ForAction: NSObject {
             print(index)
         }
     }
+
+    public func forEnumerated<I>(instance: [I]) {
+        for (i,v) in instance.enumerated() {
+            print(i)
+            print(v)
+        }
+    }
 }
