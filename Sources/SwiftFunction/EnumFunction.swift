@@ -20,4 +20,19 @@ public class EnumFunction: NSObject {
         case .c: print("c")
         }
     }
+    
+    public enum Count: Int {
+        case a,b,c
+        
+        public func countEnum() {
+            switch self {
+            case .a:
+                print(1)
+            case .b:
+                print(2)
+            case .c:
+                print(3)
+            }
+        }
+    }
 }
