@@ -35,4 +35,20 @@ public class EnumFunction: NSObject {
             }
         }
     }
+    
+    public enum Size: CaseIterable {
+        case S,M,L
+        
+        public init?(price: Int) {
+            if price == 1 {
+                self = .S
+            } else if price == 2 {
+                self = .M
+            } else if price == 3 {
+                self = .L
+            } else {
+                return nil
+            }
+        }
+    }
 }

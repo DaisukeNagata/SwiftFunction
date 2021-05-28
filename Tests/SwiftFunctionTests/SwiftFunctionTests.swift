@@ -14,7 +14,8 @@
             f.forInstanceAction(instance: [1,2,3])
             f.forEnumerated(instance: [1,2,3])
             e.abcEnum(e: EnumFunction.ABC.a)
-            print(EnumFunction.Count(rawValue: 0)!) // S
+            print(EnumFunction.Count(rawValue: 0)!)
+            print(EnumFunction.Size(price: 100)!)
         }
     }
 
