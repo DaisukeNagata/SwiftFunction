@@ -35,20 +35,20 @@ public class EnumFunction: NSObject {
             }
         }
     }
-    
-    public enum Size: CaseIterable {
-        case S,M,L
-        
-        public init?(price: Int) {
-            if price == 1 {
-                self = .S
-            } else if price == 2 {
-                self = .M
-            } else if price == 3 {
-                self = .L
-            } else {
-                return nil
-            }
+
+    public enum Person {
+        case Name(name: String)
+        case Age(age: Int)
+    }
+
+    public func checkAttr(attr: Person) {
+        switch attr {
+        case .Age(age: 0...25):
+            print("Age = 0...25")
+        case .Name(let name):
+            print("Name = \(name)")
+        default:
+            break
         }
     }
 }

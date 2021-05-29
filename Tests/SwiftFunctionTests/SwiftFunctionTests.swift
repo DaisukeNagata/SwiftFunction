@@ -15,30 +15,7 @@
             f.forEnumerated(instance: [1,2,3])
             e.abcEnum(e: EnumFunction.ABC.a)
             print(EnumFunction.Count(rawValue: 0)!)
-            print(EnumFunction.Size(price: 100)!)
-        }
-    }
-
-    func forAction(start: Int, end: Int) {
-        for i in start..<end {
-            print(i)
-        }
-    }
-    
-    func forAction_2(start: Int, end: Int) {
-        for i in start...end {
-            print(i)
-        }
-    }
-    
-    func forEatchAction<I>(index: [I]) {
-        index.forEach { i in
-            print(i)
-        }
-    }
-
-    func forInstanceAction<I>(instance: [I]) {
-        for index in instance {
-            print(index)
+            print(e.checkAttr(attr: EnumFunction.Person.Age(age: 20)))
+            print(e.checkAttr(attr: EnumFunction.Person.Name(name: "D")))
         }
     }
