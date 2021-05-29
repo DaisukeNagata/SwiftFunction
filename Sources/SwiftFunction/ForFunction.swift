@@ -1,6 +1,13 @@
+//
+//  ForFunction.swift
+//
+//
+//  Created by 永田大祐 on 2021/05/30.
+//
+
 import Foundation
 
-public class ForAction: NSObject {
+public class ForFunction: NSObject {
     public func forAction(start: Int, end: Int) {
         for i in start..<end {
             print(i)
