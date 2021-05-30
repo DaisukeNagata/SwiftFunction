@@ -8,6 +8,7 @@
         var stringSplitFunction = StringSplitFunction()
         var mapFunction = MapFunction()
         let sortedFunction = SortedFunction()
+
         func testExample() {
             // This is an example of a functional test case.
             // Use XCTAssert and related functions to verify your tests produce the correct
@@ -26,5 +27,17 @@
             stringSplitFunction.stringSplit(str: "Hell12o, p3laygrou4.5nd", rangeSt: "[0-9-.]")
             mapFunction.totalFunction()
             sortedFunction.dicSorted(dic: ["111": 111, "222": 222, "333": 333, "444": 444, "555": 555])
+            
+            let h = HashFunction.init(sectionID: "123", itemID: "345E")
+
+
+            var hasher = Hasher()
+            hasher.combine(h.sectionIDHash)
+            hasher.combine(h.itemIDHash)
+
+            let hash = hasher.finalize()
+            print(h.sectionIDHash, "sectionIDHash")
+            print(h.itemIDHash, "itemIDHash")
+            print(hash, "hash")
         }
     }
