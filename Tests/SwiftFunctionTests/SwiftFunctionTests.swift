@@ -2,13 +2,13 @@
     @testable import SwiftFunction
 
     final class SwiftFunctionTests: XCTestCase {
-        var forFunction =  ForFunction()
-        var enumFunction =  EnumFunction()
-        var firstFunction = FirstFunction()
-        var stringSplitFunction = StringSplitFunction()
-        var mapFunction = MapFunction()
+        let forFunction =  ForFunction()
+        let enumFunction =  EnumFunction()
+        let firstFunction = FirstFunction()
+        let stringSplitFunction = StringSplitFunction()
+        let mapFunction = MapFunction()
         let sortedFunction = SortedFunction()
-
+        let orderedSetFunction = OrderedSetFunction()
         func testExample() {
             // This is an example of a functional test case.
             // Use XCTAssert and related functions to verify your tests produce the correct
@@ -39,5 +39,7 @@
             print(h.sectionIDHash, "sectionIDHash")
             print(h.itemIDHash, "itemIDHash")
             print(hash, "hash")
+            
+            orderedSetFunction.orderedSet(searchWords: ["a","b","c","d","d","c","e","e"])
         }
     }
