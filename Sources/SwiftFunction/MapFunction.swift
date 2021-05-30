@@ -8,6 +8,7 @@
 import Foundation
 
 public class MapFunction: NSObject {
+
     public func totalFunction() {
         let array = [1, 2, 3, 4, 5]
 
