@@ -10,6 +10,7 @@
         let sortedFunction = SortedFunction()
         let orderedSetFunction = OrderedSetFunction()
         let genericsFunction = GenericsFunction()
+        let whileFunction = WhileFunction()
         func testExample() {
             // This is an example of a functional test case.
             // Use XCTAssert and related functions to verify your tests produce the correct
@@ -49,7 +50,10 @@
             let c = 20
 
             print(genericsFunction.bigger(a, val2: b, val3: c))
-            //一番小さい数を返す
+
             print(genericsFunction.smaller(a, val2: b, val3: c))
+            
+            print(whileFunction.whileCount(value: 10))
+            print(whileFunction.repeatCount(value: 10))
         }
     }
