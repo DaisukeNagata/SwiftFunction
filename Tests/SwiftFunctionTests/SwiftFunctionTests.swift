@@ -6,6 +6,7 @@
         var enumFunction =  EnumFunction()
         var firstFunction = FirstFunction()
         var stringSplitFunction = StringSplitFunction()
+        var mapFunction = MapFunction()
         func testExample() {
             // This is an example of a functional test case.
             // Use XCTAssert and related functions to verify your tests produce the correct
@@ -21,5 +22,6 @@
             print(enumFunction.checkAttr(attr: EnumFunction.Person.Name(name: "D")))
             firstFunction.firstIndexFunction()
             stringSplitFunction.stringSplit(str: "Hell12o, p3laygrou4.5nd", rangeSt: "[0-9-.]")
+            mapFunction.totalFunction()
         }
     }
