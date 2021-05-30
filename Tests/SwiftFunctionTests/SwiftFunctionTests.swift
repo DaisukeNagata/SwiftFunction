@@ -7,6 +7,7 @@
         var firstFunction = FirstFunction()
         var stringSplitFunction = StringSplitFunction()
         var mapFunction = MapFunction()
+        let sortedFunction = SortedFunction()
         func testExample() {
             // This is an example of a functional test case.
             // Use XCTAssert and related functions to verify your tests produce the correct
@@ -23,5 +24,6 @@
             firstFunction.firstIndexFunction()
             stringSplitFunction.stringSplit(str: "Hell12o, p3laygrou4.5nd", rangeSt: "[0-9-.]")
             mapFunction.totalFunction()
+            sortedFunction.dicSorted(dic: ["111": 111, "222": 222, "333": 333, "444": 444, "555": 555])
         }
     }
