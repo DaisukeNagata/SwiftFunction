@@ -9,6 +9,7 @@
         let mapFunction = MapFunction()
         let sortedFunction = SortedFunction()
         let orderedSetFunction = OrderedSetFunction()
+        let genericsFunction = GenericsFunction()
         func testExample() {
             // This is an example of a functional test case.
             // Use XCTAssert and related functions to verify your tests produce the correct
@@ -41,5 +42,14 @@
             print(hash, "hash")
             
             orderedSetFunction.orderedSet(searchWords: ["a","b","c","d","d","c","e","e"])
+            
+            
+            let a = 10
+            let b = 15
+            let c = 20
+
+            print(genericsFunction.bigger(a, val2: b, val3: c))
+            //一番小さい数を返す
+            print(genericsFunction.smaller(a, val2: b, val3: c))
         }
     }
