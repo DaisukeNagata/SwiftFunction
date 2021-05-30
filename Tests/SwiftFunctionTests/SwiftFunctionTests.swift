@@ -22,6 +22,7 @@
             print(enumFunction.checkAttr(attr: EnumFunction.Person.Age(age: 20)))
             print(enumFunction.checkAttr(attr: EnumFunction.Person.Name(name: "D")))
             firstFunction.firstIndexFunction()
+            firstFunction.checkIndexFunction(numArray: [60, 70, 90, nil, 90, 0, 80, 80, 0, 80])
             stringSplitFunction.stringSplit(str: "Hell12o, p3laygrou4.5nd", rangeSt: "[0-9-.]")
             mapFunction.totalFunction()
             sortedFunction.dicSorted(dic: ["111": 111, "222": 222, "333": 333, "444": 444, "555": 555])

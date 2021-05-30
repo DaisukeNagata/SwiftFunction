@@ -17,4 +17,12 @@ public class FirstFunction: NSObject {
             }
         }
     }
+    
+    public func checkIndexFunction(numArray: [Int?]) {
+        for (i, v) in numArray.enumerated() {
+            if ((numArray.firstIndex(where: { _ in 0 != v && v != nil })) != nil) {
+                print("index: \(i)")
+            }
+        }
+    }
 }
