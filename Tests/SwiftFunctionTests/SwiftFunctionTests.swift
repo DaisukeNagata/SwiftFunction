@@ -55,5 +55,6 @@
             
             print(whileFunction.whileCount(value: 10))
             print(whileFunction.repeatCount(value: 10))
+            print(whileFunction.whileJudge(value: 10))
         }
     }

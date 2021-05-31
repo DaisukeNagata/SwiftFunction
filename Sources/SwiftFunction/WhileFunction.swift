@@ -33,7 +33,7 @@ final class WhileFunction: NSObject {
         var i = 0
         while true {
             i += 1
-            if 4 < i {
+            if value < i {
                 break
             }
             if i == 2 {
