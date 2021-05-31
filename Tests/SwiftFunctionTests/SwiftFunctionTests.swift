@@ -2,9 +2,10 @@
     @testable import SwiftFunction
 
     final class SwiftFunctionTests: XCTestCase {
+        let closureFunction =  ClosureFunction()
         let forFunction =  ForFunction()
         let enumFunction =  EnumFunction()
-        let firstFunction = FirstIndexFunction()
+        let firstIndexFunction = FirstIndexFunction()
         let stringSplitFunction = StringSplitFunction()
         let mapFunction = MapFunction()
         let sortedFunction = SortedFunction()
@@ -17,23 +18,37 @@
             // Use XCTAssert and related functions to verify your tests produce the correct
             // results.
             // XCTAssertEqual(SwiftFunction.text, "Hello, World!")
+
+            // ClosureFunction
+            print(closureFunction.nomberComponent(value: 777) ?? 0)
+
+            // ForFunction
             forFunction.forAction(start: 0, end: 10)
             forFunction.forEatchAction(index: [1,2,3])
             forFunction.forInstanceAction(instance: [1,2,3])
             forFunction.forEnumerated(instance: [1,2,3])
+
+            // EnumFunction
             enumFunction.abcEnum(e: EnumFunction.ABC.a)
             print(EnumFunction.Count(rawValue: 0)!)
             print(enumFunction.checkAttr(attr: EnumFunction.Person.Age(age: 20)))
             print(enumFunction.checkAttr(attr: EnumFunction.Person.Name(name: "D")))
-            firstFunction.firstIndexFunction()
-            firstFunction.checkIndexFunction(numArray: [60, 70, 90, nil, 90, 0, 80, 80, 0, 80])
+
+            // FirstIndexFunction
+            firstIndexFunction.firstIndexFunction()
+            firstIndexFunction.checkIndexFunction(numArray: [60, 70, 90, nil, 90, 0, 80, 80, 0, 80])
+            
+            // StringSplitFunction
             stringSplitFunction.stringSplit(str: "Hell12o, p3laygrou4.5nd", rangeSt: "[0-9-.]")
+
+            // MapFunction
             mapFunction.totalFunction()
+            
+            // SortedFunction
             sortedFunction.dicSorted(dic: ["111": 111, "222": 222, "333": 333, "444": 444, "555": 555])
             
+            // HashFunction
             let h = HashFunction.init(sectionID: "123", itemID: "345E")
-
-
             var hasher = Hasher()
             hasher.combine(h.sectionIDHash)
             hasher.combine(h.itemIDHash)
@@ -43,21 +58,23 @@
             print(h.itemIDHash, "itemIDHash")
             print(hash, "hash")
             
+            // OrderedSetFunction
             orderedSetFunction.orderedSet(searchWords: ["a","b","c","d","d","c","e","e"])
             
-            
+            // GenericsFunction
             let a = 10
             let b = 15
             let c = 20
 
             print(genericsFunction.bigger(a, val2: b, val3: c))
-
             print(genericsFunction.smaller(a, val2: b, val3: c))
             
+            // WhileFunction
             print(whileFunction.whileCount(value: 10))
             print(whileFunction.repeatCount(value: 10))
             print(whileFunction.whileJudge(value: 10))
             
+            // MathematicsFunction
             // 水平線からの角度を算出
             print(mathematicsFunction.angle(a: CGPoint(x: 50, y: 50), b: CGPoint(x: 100, y: 100)), "angle")
 
