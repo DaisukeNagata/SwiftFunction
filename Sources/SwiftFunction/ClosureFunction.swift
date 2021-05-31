@@ -9,9 +9,9 @@ import Foundation
 
 public class ClosureFunction: NSObject {
 
-    public var rowsInComponent = { (_ value: Int?) -> Int? in return value }
+    public var numberClosure = { (_ value: Int?) -> Int? in return value }
 
-    public func nomberComponent(value: Int?) -> Int? {
-        return rowsInComponent(value)
+    public func numberComponent(value: Int?) -> Int? {
+        return numberClosure(value)
     }
 }

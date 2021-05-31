@@ -20,7 +20,7 @@
             // XCTAssertEqual(SwiftFunction.text, "Hello, World!")
 
             // ClosureFunction
-            print(closureFunction.nomberComponent(value: 777) ?? 0)
+            print(closureFunction.numberComponent(value: 777) ?? 0)
 
             // ForFunction
             forFunction.forAction(start: 0, end: 10)
