@@ -4,7 +4,7 @@
     final class SwiftFunctionTests: XCTestCase {
         let forFunction =  ForFunction()
         let enumFunction =  EnumFunction()
-        let firstFunction = FirstFunction()
+        let firstFunction = FirstIndexFunction()
         let stringSplitFunction = StringSplitFunction()
         let mapFunction = MapFunction()
         let sortedFunction = SortedFunction()

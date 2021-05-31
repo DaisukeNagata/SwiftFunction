@@ -1,5 +1,5 @@
 //
-//  FirstFunction.swift
+//  FirstIndexFunction.swift
 //  
 //
 //  Created by 永田大祐 on 2021/05/30.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class FirstFunction: NSObject {
+public class FirstIndexFunction: NSObject {
 
     public func firstIndexFunction() {
         let scheduleArray = ["00","01","02"]
