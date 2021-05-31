@@ -18,7 +18,7 @@ final class WhileFunction: NSObject {
         }
         print(total)
     }
-    
+
     public func repeatCount(value: Int) {
         var count = 0
         var total = 0
@@ -27,5 +27,19 @@ final class WhileFunction: NSObject {
             total += count
         } while count < value
         print(total)
+    }
+
+    public func whileJudge(value: Int) {
+        var i = 0
+        while true {
+            i += 1
+            if 4 < i {
+                break
+            }
+            if i == 2 {
+                continue
+            }
+            print(i)
+        }
     }
 }
