@@ -11,6 +11,7 @@
         let orderedSetFunction = OrderedSetFunction()
         let genericsFunction = GenericsFunction()
         let whileFunction = WhileFunction()
+        let mathematicsFunction = MathematicsFunction(h: .zero, v:  .zero)
         func testExample() {
             // This is an example of a functional test case.
             // Use XCTAssert and related functions to verify your tests produce the correct
@@ -56,5 +57,18 @@
             print(whileFunction.whileCount(value: 10))
             print(whileFunction.repeatCount(value: 10))
             print(whileFunction.whileJudge(value: 10))
+            
+            // 水平線からの角度を算出
+            print(mathematicsFunction.angle(a: CGPoint(x: 50, y: 50), b: CGPoint(x: 100, y: 100)), "angle")
+
+            // 放物線の距離を算出
+            let p = MathematicsFunction(h: CGPoint(x: 50, y: 50), v: CGPoint(x: 100, y: 100))
+            print(mathematicsFunction.angleLength(p1: CGPoint(x: 50, y: 50), p), "angleLength")
+
+            // 座標に対する距離を算出
+            print(mathematicsFunction.distance(a: CGPoint(x: 50, y: 50), b: CGPoint(x: 100, y: 100)), "distance")
+
+            // sin 角度に対する 正弦に相当　　cos 角度に対する余弦に相当　　tan 角度に対する正接に相当
+            print(mathematicsFunction.coordinate(cg: 100), "coordinate")
         }
     }
