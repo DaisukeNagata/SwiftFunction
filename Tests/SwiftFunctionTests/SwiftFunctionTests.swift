@@ -8,6 +8,7 @@
         let forFunction =  ForFunction()
         let genericsFunction = GenericsFunction()
         let hashFunction = HashFunction(sectionID: "123", itemID: "456")
+        let jsonFunction = JsonFunction()
         let mapFunction = MapFunction()
         let mathematicsFunction = MathematicsFunction(h: .zero, v:  .zero)
         let memoryUsage = MemoryUsage()
@@ -59,6 +60,11 @@
             print(h.itemIDHash, "itemIDHash")
             print(hash, "hash")
 
+            // JsonFunction
+            /// ①初期オブジェクト生成
+            let originalObject = JsonFunction.Employee(code: "001", name: "山田", age: 45, absence: false)
+            jsonFunction.createJson(originalObject: originalObject)
+    
             // MapFunction
             mapFunction.totalFunction()
 
