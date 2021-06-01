@@ -9,6 +9,7 @@ import Foundation
 
 public class ClosureFunction: NSObject {
 
+    public var textNumberClosure: (() -> Int)?
     public var numberClosure = { (_ value: Int?) -> Int? in return value }
 
     public func numberComponent(value: Int?) -> Int? {

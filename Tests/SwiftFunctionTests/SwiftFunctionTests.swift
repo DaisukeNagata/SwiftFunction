@@ -3,16 +3,18 @@
 
     final class SwiftFunctionTests: XCTestCase {
         let closureFunction =  ClosureFunction()
-        let forFunction =  ForFunction()
         let enumFunction =  EnumFunction()
         let firstIndexFunction = FirstIndexFunction()
-        let stringSplitFunction = StringSplitFunction()
-        let mapFunction = MapFunction()
-        let sortedFunction = SortedFunction()
-        let orderedSetFunction = OrderedSetFunction()
+        let forFunction =  ForFunction()
         let genericsFunction = GenericsFunction()
-        let whileFunction = WhileFunction()
+        let hashFunction = HashFunction(sectionID: "123", itemID: "456")
+        let mapFunction = MapFunction()
         let mathematicsFunction = MathematicsFunction(h: .zero, v:  .zero)
+        let memoryUsage = MemoryUsage()
+        let orderedSetFunction = OrderedSetFunction()
+        let sortedFunction = SortedFunction()
+        let stringSplitFunction = StringSplitFunction()
+        let whileFunction = WhileFunction()
         func testExample() {
             // This is an example of a functional test case.
             // Use XCTAssert and related functions to verify your tests produce the correct
@@ -21,12 +23,6 @@
 
             // ClosureFunction
             print(closureFunction.numberComponent(value: 777) ?? 0)
-
-            // ForFunction
-            forFunction.forAction(start: 0, end: 10)
-            forFunction.forEatchAction(index: [1,2,3])
-            forFunction.forInstanceAction(instance: [1,2,3])
-            forFunction.forEnumerated(instance: [1,2,3])
 
             // EnumFunction
             enumFunction.abcEnum(e: EnumFunction.ABC.a)
@@ -37,16 +33,21 @@
             // FirstIndexFunction
             firstIndexFunction.firstIndexFunction()
             firstIndexFunction.checkIndexFunction(numArray: [60, 70, 90, nil, 90, 0, 80, 80, 0, 80])
-            
-            // StringSplitFunction
-            stringSplitFunction.stringSplit(str: "Hell12o, p3laygrou4.5nd", rangeSt: "[0-9-.]")
 
-            // MapFunction
-            mapFunction.totalFunction()
-            
-            // SortedFunction
-            sortedFunction.dicSorted(dic: ["111": 111, "222": 222, "333": 333, "444": 444, "555": 555])
-            
+            // ForFunction
+            forFunction.forAction(start: 0, end: 10)
+            forFunction.forEatchAction(index: [1,2,3])
+            forFunction.forInstanceAction(instance: [1,2,3])
+            forFunction.forEnumerated(instance: [1,2,3])
+
+            // GenericsFunction
+            let a = 10
+            let b = 15
+            let c = 20
+
+            print(genericsFunction.bigger(a, val2: b, val3: c))
+            print(genericsFunction.smaller(a, val2: b, val3: c))
+
             // HashFunction
             let h = HashFunction.init(sectionID: "123", itemID: "345E")
             var hasher = Hasher()
@@ -57,23 +58,10 @@
             print(h.sectionIDHash, "sectionIDHash")
             print(h.itemIDHash, "itemIDHash")
             print(hash, "hash")
-            
-            // OrderedSetFunction
-            orderedSetFunction.orderedSet(searchWords: ["a","b","c","d","d","c","e","e"])
-            
-            // GenericsFunction
-            let a = 10
-            let b = 15
-            let c = 20
 
-            print(genericsFunction.bigger(a, val2: b, val3: c))
-            print(genericsFunction.smaller(a, val2: b, val3: c))
-            
-            // WhileFunction
-            print(whileFunction.whileCount(value: 10))
-            print(whileFunction.repeatCount(value: 10))
-            print(whileFunction.whileJudge(value: 10))
-            
+            // MapFunction
+            mapFunction.totalFunction()
+
             // MathematicsFunction
             // 水平線からの角度を算出
             print(mathematicsFunction.angle(a: CGPoint(x: 50, y: 50), b: CGPoint(x: 100, y: 100)), "angle")
@@ -87,5 +75,23 @@
 
             // sin 角度に対する 正弦に相当　　cos 角度に対する余弦に相当　　tan 角度に対する正接に相当
             print(mathematicsFunction.coordinate(cg: 100), "coordinate")
+
+            // MemoryUsage
+            print(memoryUsage.checkPointer())
+            print(memoryUsage.reportMemory())
+
+            // StringSplitFunction
+            stringSplitFunction.stringSplit(str: "Hell12o, p3laygrou4.5nd", rangeSt: "[0-9-.]")
+
+            // SortedFunction
+            sortedFunction.dicSorted(dic: ["111": 111, "222": 222, "333": 333, "444": 444, "555": 555])
+
+            // OrderedSetFunction
+            orderedSetFunction.orderedSet(searchWords: ["a","b","c","d","d","c","e","e"])
+
+            // WhileFunction
+            print(whileFunction.whileCount(value: 10))
+            print(whileFunction.repeatCount(value: 10))
+            print(whileFunction.whileJudge(value: 10))
         }
     }
