@@ -106,13 +106,14 @@
         }
 
         func delay(testCase: XCTestCase, seconds: Float) {
-            let delay = testCase.expectation(description: "animation finished")
-            let url = URL(string: "https://api.github.com/repos/octocat/hello-world/actions/artifacts")
+            let delay = testCase.expectation(description: "URLSessionFunction")
+            let url = URL(string: "https://7tslpj7nwg.execute-api.ap-northeast-1.amazonaws.com/default/DateTime?&os=\(UIDevice.current.systemVersion.description)&uuid=\(UIDevice.current.identifierForVendor?.uuidString ?? "")&type=ios")
             uRLSessionFunction.request(url: url!, completion:{ data, res, error in
                 do{
                     if let data = data {
                         let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
                         print(json)
+                        delay.fulfill()
                         XCTAssert(true, "Sucsess")
                     }
                 } catch{
