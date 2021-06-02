@@ -11,17 +11,17 @@ import XCTest
 @testable import SwiftFunction
 
 class TestController: XCTestCase {
-
+    
     let observeFunction = ObserveFunction()
-
+    
     func testExample() {
 
         let fileURL = URL(fileURLWithPath: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4")
         let avAsset = AVURLAsset(url: fileURL)
         let playerItem: AVPlayerItem = AVPlayerItem(asset: avAsset)
+
         observeFunction.videoPlayer = AVPlayer(playerItem: playerItem)
         observeFunction.videoPlayer?.play()
-    
         observeFunction.observeValue { call in
             print(call ?? Float(0), "call")
             self.observeFunction.stopObserver()
