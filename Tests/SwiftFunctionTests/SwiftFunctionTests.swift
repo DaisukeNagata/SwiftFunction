@@ -14,6 +14,7 @@
         let memoryUsage = MemoryUsage()
         let orderedSetFunction = OrderedSetFunction()
         let sortedFunction = SortedFunction()
+        let stringFunction = StringFunction()
         let stringSplitFunction = StringSplitFunction()
         let whileFunction = WhileFunction()
 
@@ -93,6 +94,9 @@
             // SortedFunction
             sortedFunction.dicSorted(dic: ["111": 111, "222": 222, "333": 333, "444": 444, "555": 555])
 
+            // StringFunction
+            let attributedStr = stringFunction.stringAttributes(title: "123", color: #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1), size: 17)
+            print(attributedStr.string)
             // OrderedSetFunction
             orderedSetFunction.orderedSet(searchWords: ["a","b","c","d","d","c","e","e"])
             // WhileFunction
