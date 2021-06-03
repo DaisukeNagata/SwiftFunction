@@ -21,4 +21,20 @@ public class URLSessionFunction {
         }
         task.resume()
     }
+    
+    @available(iOS 10.0, *)
+    public func export(_ pathName: URL, completion: @escaping (URL) -> Void)  {
+        URLSession.shared.dataTask(with: pathName) { data, response, error in
+            guard let data = data, error == nil else { return }
+            let tmpURL = FileManager.default.temporaryDirectory
+                .appendingPathComponent(response?.suggestedFilename ?? "")
+            do {
+                try data.write(to: tmpURL)
+                completion(tmpURL)
+            } catch {
+                print(error)
+            }
+            
+        }.resume()
+    }
 }

@@ -16,7 +16,7 @@
         let sortedFunction = SortedFunction()
         let stringSplitFunction = StringSplitFunction()
         let whileFunction = WhileFunction()
-        let uRLSessionFunction = URLSessionFunction()
+
         func testExample() {
             // This is an example of a functional test case.
             // Use XCTAssert and related functions to verify your tests produce the correct
@@ -99,30 +99,5 @@
             print(whileFunction.whileCount(value: 10))
             print(whileFunction.repeatCount(value: 10))
             print(whileFunction.whileJudge(value: 10))
-        }
-        
-        func testAsync() {
-            delay(testCase: self, seconds: 10)
-        }
-
-        func delay(testCase: XCTestCase, seconds: Float) {
-            let delay = testCase.expectation(description: "URLSessionFunction")
-            let url = URL(string: "https://7tslpj7nwg.execute-api.ap-northeast-1.amazonaws.com/default/DateTime?&os=\(UIDevice.current.systemVersion.description)&uuid=\(UIDevice.current.identifierForVendor?.uuidString ?? "")&type=ios")
-            uRLSessionFunction.request(url: url!, completion:{ data, res, error in
-                do{
-                    if let data = data {
-                        let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
-                        print(json)
-                        delay.fulfill()
-                        XCTAssert(true, "Sucsess")
-                    }
-                } catch{
-                    XCTAssert(false, "Serialize Error.")
-                }
-            })
-            DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(seconds)) {
-                delay.fulfill()
-            }
-            testCase.waitForExpectations(timeout: TimeInterval(seconds))
         }
     }
