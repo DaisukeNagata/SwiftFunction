@@ -96,7 +96,12 @@
 
             // StringFunction
             let attributedStr = stringFunction.stringAttributes(title: "123", color: #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1), size: 17)
+            let hyperlinkAtribute = stringFunction.hyperlinkAtribute(termsTitle: "Google",
+                                                                     lineSpacing: 5,
+                                                                     link: "https://google.com",
+                                                                     title: "Google")
             print(attributedStr.string)
+            print(hyperlinkAtribute.string)
             // OrderedSetFunction
             orderedSetFunction.orderedSet(searchWords: ["a","b","c","d","d","c","e","e"])
             // WhileFunction
