@@ -5,7 +5,16 @@
 //  Created by 永田大祐 on 2021/06/03.
 //
 import Foundation
+import Combine
 
+struct Time : Decodable {
+    var statusCode: Int
+    var count: String
+    var os: String
+    var uuid: String
+}
+
+@available(iOS 13.0, *)
 public class URLSessionFunction {
     public func request(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         let request = URLRequest(url: url)
@@ -21,8 +30,7 @@ public class URLSessionFunction {
         }
         task.resume()
     }
-    
-    @available(iOS 10.0, *)
+
     public func export(_ pathName: URL, completion: @escaping (URL) -> Void)  {
         URLSession.shared.dataTask(with: pathName) { data, response, error in
             guard let data = data, error == nil else { return }
@@ -36,5 +44,35 @@ public class URLSessionFunction {
             }
             
         }.resume()
+    }
+
+    public var cancellable: Cancellable? {
+        didSet { oldValue?.cancel() }
+    }
+
+    public func combineResponse(urlPath: String, uuid: String, completion: @escaping () -> Void) {
+        guard let url = URL(string: urlPath) else { return }
+
+        var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        cancellable = URLSession.shared.dataTaskPublisher(for: request)
+            .map { $0.data }
+            .decode(type: Time.self, decoder: JSONDecoder())
+            .map { $0 }
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+
+        .sink(receiveCompletion: { completion in
+            switch completion {
+            case .finished:
+                break
+            case .failure(let error):
+                fatalError(error.localizedDescription)
+            }
+        }, receiveValue: { user in
+            print(user)
+            completion()
+        })
     }
 }
