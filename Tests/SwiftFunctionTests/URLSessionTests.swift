@@ -8,14 +8,15 @@
 import XCTest
 @testable import SwiftFunction
 
+@available(iOS 13.0, *)
 final class URLSessionTests: XCTestCase {
 
     let uRLSessionFunction = URLSessionFunction()
 
-    @available(iOS 10.0, *)
     func testAsync() {
         delay(testCase: self, seconds: 10)
         delayFileManager(testCase: self, seconds: 10)
+        delayCombine(testCase: self, seconds: 10)
     }
 
     func delay(testCase: XCTestCase, seconds: Float) {
@@ -39,7 +40,6 @@ final class URLSessionTests: XCTestCase {
         testCase.waitForExpectations(timeout: TimeInterval(seconds))
     }
 
-    @available(iOS 10.0, *)
     func delayFileManager(testCase: XCTestCase, seconds: Float) {
         let delayFileManager = testCase.expectation(description: "delayFileManager")
         guard let url = URL(string: "https://7tslpj7nwg.execute-api.ap-northeast-1.amazonaws.com/default/DateTime?&os=\(UIDevice.current.systemVersion.description)&uuid=\(UIDevice.current.identifierForVendor?.uuidString ?? "")&type=ios") else { return }
@@ -50,6 +50,19 @@ final class URLSessionTests: XCTestCase {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(seconds)) {
             delayFileManager.fulfill()
+        }
+        testCase.waitForExpectations(timeout: TimeInterval(seconds))
+    }
+    
+    func delayCombine(testCase: XCTestCase, seconds: Float) {
+        let delayCombine = testCase.expectation(description: "delayCombine")
+        let myURL = "https://7tslpj7nwg.execute-api.ap-northeast-1.amazonaws.com/default/DateTime?&os=\(UIDevice.current.systemVersion.description)&uuid=\(UIDevice.current.identifierForVendor?.uuidString ?? "")&type=ios"
+        uRLSessionFunction.combineResponse(urlPath: myURL, uuid: UIDevice.current.identifierForVendor?.uuidString ?? "") {
+            delayCombine.fulfill()
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(seconds)) {
+            delayCombine.fulfill()
         }
         testCase.waitForExpectations(timeout: TimeInterval(seconds))
     }

@@ -13,6 +13,8 @@
         let mathematicsFunction = MathematicsFunction(h: .zero, v:  .zero)
         let memoryUsage = MemoryUsage()
         let orderedSetFunction = OrderedSetFunction()
+        let protocolFunctionA = ProtocolFunctionA()
+        let protocolFunctionB = ProtocolFunctionB()
         let sortedFunction = SortedFunction()
         let stringFunction = StringFunction()
         let stringSplitFunction = StringSplitFunction()
@@ -104,6 +106,11 @@
             print(hyperlinkAtribute.string)
             // OrderedSetFunction
             orderedSetFunction.orderedSet(searchWords: ["a","b","c","d","d","c","e","e"])
+            
+            // ProtocolFunction
+            protocolFunctionB.delegate = protocolFunctionA
+            protocolFunctionB.delegate?.protocolFunction(type: "type")
+
             // WhileFunction
             print(whileFunction.whileCount(value: 10))
             print(whileFunction.repeatCount(value: 10))
