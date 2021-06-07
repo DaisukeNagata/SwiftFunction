@@ -44,6 +44,7 @@
             forFunction.forEatchAction(index: [1,2,3])
             forFunction.forInstanceAction(instance: [1,2,3])
             forFunction.forEnumerated(instance: [1,2,3])
+            forFunction.forWhereInt(index: [1,2,3], fix: 3)
 
             // GenericsFunction
             let a = 10

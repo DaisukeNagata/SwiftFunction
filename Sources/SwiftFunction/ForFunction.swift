@@ -32,4 +32,10 @@ public class ForFunction: NSObject {
             print(v)
         }
     }
+    
+    public func forWhereInt(index: [Int], fix: Int) {
+        for count in index where count == fix {
+            print(count, "forWhereInt")
+        }
+    }
 }
