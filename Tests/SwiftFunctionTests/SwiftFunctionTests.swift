@@ -17,6 +17,7 @@
         let protocolFunctionB = ProtocolFunctionB()
         let sortedFunction = SortedFunction()
         let stringFunction = StringFunction()
+        let switchFunction = SwitchFunction()
         let stringSplitFunction = StringSplitFunction()
         let whileFunction = WhileFunction()
 
@@ -28,7 +29,6 @@
 
             // ClosureFunction
             print(closureFunction.numberComponent(value: 777) ?? 0)
-
             // EnumFunction
             enumFunction.abcEnum(e: EnumFunction.ABC.a)
             print(EnumFunction.Count(rawValue: 0)!)
@@ -93,6 +93,10 @@
             // StringSplitFunction
             stringSplitFunction.stringSplit(str: "Hell12o, p3laygrou4.5nd", rangeSt: "[0-9-.]")
 
+            // SwitchFunction
+            switchFunction.switchWhere(token: "123")
+            switchFunction.switchWhere(token: "")
+            switchFunction.switchWhere(token: nil)
             // SortedFunction
             sortedFunction.dicSorted(dic: ["111": 111, "222": 222, "333": 333, "444": 444, "555": 555])
 
