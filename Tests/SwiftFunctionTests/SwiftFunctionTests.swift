@@ -72,7 +72,8 @@
     
             // MapFunction
             mapFunction.totalFunction()
-
+            let items = ["A", "B", "C", "D", "A", "A"]
+            print(items.indexes(of: "A"))
             // MathematicsFunction
             // 水平線からの角度を算出
             print(mathematicsFunction.angle(a: CGPoint(x: 50, y: 50), b: CGPoint(x: 100, y: 100)), "angle")
@@ -100,7 +101,6 @@
             switchFunction.switchWhere(token: nil)
             // SortedFunction
             sortedFunction.dicSorted(dic: ["111": 111, "222": 222, "333": 333, "444": 444, "555": 555])
-
             // StringFunction
             let attributedStr = stringFunction.stringAttributes(title: "123", color: #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1), size: 17)
             let hyperlinkAtribute = stringFunction.hyperlinkAtribute(termsTitle: "Google",
