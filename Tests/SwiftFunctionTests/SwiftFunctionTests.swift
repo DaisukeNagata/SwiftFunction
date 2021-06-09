@@ -34,7 +34,7 @@
 
             //DateFunction
             print("--DateFunction--")
-            dateFunction.dateNowFunction()
+            dateFunction.dateNowFunction(template: "yMMMdHms" ,identifier: "ja_JP")
             // EnumFunction
             print("--EnumFunction--")
             enumFunction.abcEnum(e: EnumFunction.ABC.a)

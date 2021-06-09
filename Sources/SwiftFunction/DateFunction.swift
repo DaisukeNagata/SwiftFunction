@@ -8,11 +8,10 @@
 import Foundation
 
 public class DateFunction {
-    public func dateNowFunction() {
+    public func dateNowFunction(template: String, identifier: String) {
         let dt = Date()
         let dateFormatter = DateFormatter()
-        // DateFormatter を使用して書式とロケールを指定する
-        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMMdHms", options: 0, locale: Locale(identifier: "ja_JP"))
+        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: template, options: 0, locale: Locale(identifier: identifier))
         print(dateFormatter.string(from: dt))
     }
 }
