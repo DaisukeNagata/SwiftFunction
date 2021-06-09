@@ -3,6 +3,7 @@
 
     final class SwiftFunctionTests: XCTestCase {
         let closureFunction =  ClosureFunction()
+        let dateFunction = DateFunction()
         let enumFunction =  EnumFunction()
         let firstIndexFunction = FirstIndexFunction()
         let forFunction =  ForFunction()
@@ -31,6 +32,9 @@
             print("--ClosureFunction--")
             print(closureFunction.numberComponent(value: 777) ?? 0)
 
+            //DateFunction
+            print("--DateFunction--")
+            dateFunction.dateNowFunction()
             // EnumFunction
             print("--EnumFunction--")
             enumFunction.abcEnum(e: EnumFunction.ABC.a)
