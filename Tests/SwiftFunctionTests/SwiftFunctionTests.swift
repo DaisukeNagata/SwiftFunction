@@ -35,6 +35,7 @@
             //DateFunction
             print("--DateFunction--")
             dateFunction.dateNowFunction(template: "yMMMdHms" ,identifier: "ja_JP")
+            dateFunction.afterDate(template: "yMMMdHms", identifier: "ja_JP", byAdding: .day, value: 1)
             // EnumFunction
             print("--EnumFunction--")
             enumFunction.abcEnum(e: EnumFunction.ABC.a)
