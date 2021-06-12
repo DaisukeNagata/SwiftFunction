@@ -87,6 +87,7 @@
             print("--MapFunction--")
             mapFunction.totalFunction()
             print(mapFunction.compactMapFunction(value: [1,2,3,4,nil,6,7]), "compactMapFunction")
+            print(mapFunction.flatMapFunction(value: [[1, 2, 3], [1, 2, 3], [1, 2, 3]]), "flatMapFunction")
             let items = ["A", "B", "C", "D", "A", "A"]
             print(items.indexes(of: "A"))
             // MathematicsFunction

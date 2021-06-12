@@ -24,6 +24,11 @@ public class MapFunction: NSObject {
         let list: [Int] = value.compactMap { $0 }
         return list
     }
+
+    public func flatMapFunction(value: [[Int]]) -> [String] {
+        let list: [String] = value.flatMap { $0.map { "\($0)"} }
+        return list
+    }
 }
 
 public extension Array where Element: Equatable {
