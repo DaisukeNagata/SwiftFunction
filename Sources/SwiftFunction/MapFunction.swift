@@ -19,6 +19,11 @@ public class MapFunction: NSObject {
         print(total)
         print(average)
     }
+    
+    public func compactMapFunction(value: [Int?]) -> [Int]{
+        let list: [Int] = value.compactMap { $0 }
+        return list
+    }
 }
 
 public extension Array where Element: Equatable {
