@@ -16,9 +16,9 @@ public class OrderedSetFunction: NSObject {
         for (i, v) in orderArray.enumerated() {
             if let firstIndex = searchWords.firstIndex(where: {$0 == orderArray[i]}) {
                 indexCheckArray.append(v)
-                print("インデックス: \(firstIndex)")
+                print("index: \(firstIndex)", "firstIndex")
             }
         }
-        print(indexCheckArray)
+        print(indexCheckArray, "orderedSet")
     }
 }

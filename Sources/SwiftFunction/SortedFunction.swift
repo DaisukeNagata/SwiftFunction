@@ -13,6 +13,6 @@ public class SortedFunction: NSObject {
         let thisissorted =  dic.sorted { (l, r) -> Bool in
             return l.value < r.value ? false : true
         }
-        print(thisissorted)
+        print(thisissorted, "dicSorted")
     }
 }

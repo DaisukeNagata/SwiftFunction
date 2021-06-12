@@ -19,6 +19,6 @@ public class StringSplitFunction: NSObject {
                 ans += s.description
             }
         }
-        print(ans)
+        print(ans, "stringSplit")
     }
 }
