@@ -14,7 +14,7 @@ public protocol ProtocolFunction {
 public class ProtocolFunctionA: NSObject, ProtocolFunction {
 
     public func protocolFunction<T>(type: T) {
-        print(type, "protocolFunctionA")
+        print(type, "🟢protocolFunctionA")
     }
 }
 

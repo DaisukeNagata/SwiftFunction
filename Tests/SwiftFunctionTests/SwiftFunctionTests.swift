@@ -30,8 +30,8 @@
 
             // ClosureFunction
             print("--ClosureFunction--")
-            print(closureFunction.numberComponent(value: 777) ?? 0, "numberComponent")
-            closureFunction.escapingFunction { print("escapingFunction") }
+            print(closureFunction.numberComponent(value: 777) ?? 0, "🟢numberComponent")
+            closureFunction.escapingFunction { print("🟢escapingFunction") }
             //DateFunction
             print("--DateFunction--")
             dateFunction.dateNowFunction(template: "yMMMdHms" ,identifier: "ja_JP")
@@ -39,9 +39,9 @@
             // EnumFunction
             print("--EnumFunction--")
             enumFunction.abcEnum(e: EnumFunction.ABC.a)
-            print(EnumFunction.Count(rawValue: 0)! , "Count")
-            print(enumFunction.checkAttr(attr: EnumFunction.Person.Age(age: 20)), "checkAttr")
-            print(enumFunction.checkAttr(attr: EnumFunction.Person.Name(name: "D")))
+            print(EnumFunction.Count(rawValue: 0)! , "🟢Count")
+            print(enumFunction.checkAttr(attr: EnumFunction.Person.Age(age: 20)), "🟢checkAttr")
+            print(enumFunction.checkAttr(attr: EnumFunction.Person.Name(name: "D")), "🟢checkAttr")
 
             // FirstIndexFunction
             print("--FirstIndexFunction--")
@@ -62,8 +62,8 @@
             let b = 15
             let c = 20
 
-            print(genericsFunction.bigger(a, val2: b, val3: c), "bigger")
-            print(genericsFunction.smaller(a, val2: b, val3: c), "smaller")
+            print(genericsFunction.bigger(a, val2: b, val3: c), "🟢bigger")
+            print(genericsFunction.smaller(a, val2: b, val3: c), "🟢smaller")
 
             // HashFunction
             print("--HashFunction--")
@@ -73,9 +73,9 @@
             hasher.combine(h.itemIDHash)
 
             let hash = hasher.finalize()
-            print(h.sectionIDHash, "sectionIDHash")
-            print(h.itemIDHash, "itemIDHash")
-            print(hash, "hash")
+            print(h.sectionIDHash, "🟢sectionIDHash")
+            print(h.itemIDHash, "🟢itemIDHash")
+            print(hash, "🟢hash")
 
             // JsonFunction
             print("--JsonFunction--")
@@ -86,28 +86,28 @@
             // MapFunction
             print("--MapFunction--")
             mapFunction.totalFunction()
-            print(mapFunction.compactMapFunction(value: [1,2,3,4,nil,6,7]), "compactMapFunction")
-            print(mapFunction.flatMapFunction(value: [[1, 2, 3], [1, 2, 3], [1, 2, 3]]), "flatMapFunction")
+            print(mapFunction.compactMapFunction(value: [1,2,3,4,nil,6,7]), "🟢compactMapFunction")
+            print(mapFunction.flatMapFunction(value: [[1, 2, 3], [1, 2, 3], [1, 2, 3]]), "🟢flatMapFunction")
             let items = ["A", "B", "C", "D", "A", "A"]
-            print(items.indexes(of: "A"), "indexes")
+            print(items.indexes(of: "A"), "🟢indexes")
             // MathematicsFunction
             // 水平線からの角度を算出
-            print(mathematicsFunction.angle(a: CGPoint(x: 50, y: 50), b: CGPoint(x: 100, y: 100)), "angle")
+            print(mathematicsFunction.angle(a: CGPoint(x: 50, y: 50), b: CGPoint(x: 100, y: 100)), "🟢angle")
 
             // 放物線の距離を算出
             let p = MathematicsFunction(h: CGPoint(x: 50, y: 50), v: CGPoint(x: 100, y: 100))
-            print(mathematicsFunction.angleLength(p1: CGPoint(x: 50, y: 50), p), "angleLength")
+            print(mathematicsFunction.angleLength(p1: CGPoint(x: 50, y: 50), p), "🟢angleLength")
 
             // 座標に対する距離を算出
-            print(mathematicsFunction.distance(a: CGPoint(x: 50, y: 50), b: CGPoint(x: 100, y: 100)), "distance")
+            print(mathematicsFunction.distance(a: CGPoint(x: 50, y: 50), b: CGPoint(x: 100, y: 100)), "🟢distance")
 
             // sin 角度に対する 正弦に相当　　cos 角度に対する余弦に相当　　tan 角度に対する正接に相当
-            print(mathematicsFunction.coordinate(cg: 100), "coordinate")
+            print(mathematicsFunction.coordinate(cg: 100), "🟢coordinate")
 
             // MemoryUsage
             print("--MemoryUsage--")
-            print(memoryUsage.checkPointer(), "checkPointer")
-            print(memoryUsage.reportMemory(), "reportMemory")
+            print(memoryUsage.checkPointer(), "🟢checkPointer")
+            print(memoryUsage.reportMemory(), "🟢reportMemory")
 
             // StringSplitFunction
             print("--StringSplitFunction--")
@@ -130,8 +130,8 @@
                                                                      lineSpacing: 5,
                                                                      link: "https://google.com",
                                                                      title: "Google")
-            print(attributedStr.string, "stringAttributes")
-            print(hyperlinkAtribute.string, "hyperlinkAtribute")
+            print(attributedStr.string, "🟢stringAttributes")
+            print(hyperlinkAtribute.string, "🟢hyperlinkAtribute")
 
             // OrderedSetFunction
             print("--OrderedSetFunction--")
@@ -144,8 +144,8 @@
 
             // WhileFunction
             print("--WhileFunction--")
-            print(whileFunction.whileCount(value: 10), "whileCount")
-            print(whileFunction.repeatCount(value: 10), "repeatCount")
-            print(whileFunction.whileJudge(value: 10), "whileJudge")
+            print(whileFunction.whileCount(value: 10), "🟢whileCount")
+            print(whileFunction.repeatCount(value: 10), "🟢repeatCount")
+            print(whileFunction.whileJudge(value: 10), "🟢whileJudge")
         }
     }

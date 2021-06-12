@@ -26,7 +26,7 @@ final class URLSessionTests: XCTestCase {
             do{
                 if let data = data {
                     let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
-                    print(json)
+                    print("\("🟢")",json)
                     delay.fulfill()
                     XCTAssert(true, "Sucsess")
                 }
@@ -44,7 +44,7 @@ final class URLSessionTests: XCTestCase {
         let delayFileManager = testCase.expectation(description: "delayFileManager")
         guard let url = URL(string: "https://7tslpj7nwg.execute-api.ap-northeast-1.amazonaws.com/default/DateTime?&os=\(UIDevice.current.systemVersion.description)&uuid=\(UIDevice.current.identifierForVendor?.uuidString ?? "")&type=ios") else { return }
         uRLSessionFunction.export(url) { url in
-            print(url)
+            print("\("🟢")",url)
             delayFileManager.fulfill()
         }
         

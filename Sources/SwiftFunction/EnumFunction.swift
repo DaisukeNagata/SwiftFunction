@@ -15,9 +15,9 @@ public class EnumFunction: NSObject {
 
     public func abcEnum(e: ABC<Any>) {
         switch e {
-        case .a: print("a")
-        case .b: print("b")
-        case .c: print("c")
+        case .a: print("a","🟢abcEnum")
+        case .b: print("b","🟢abcEnum")
+        case .c: print("c","🟢abcEnum")
         }
     }
     
@@ -27,11 +27,11 @@ public class EnumFunction: NSObject {
         public func countEnum() {
             switch self {
             case .a:
-                print(1)
+                print(1,"🟢Count")
             case .b:
-                print(2)
+                print(2,"🟢Count")
             case .c:
-                print(3)
+                print(3,"🟢Count")
             }
         }
     }
@@ -44,9 +44,9 @@ public class EnumFunction: NSObject {
     public func checkAttr(attr: Person) {
         switch attr {
         case .Age(age: 0...25):
-            print("Age = 0...25")
+            print("Age = 0...25", "🟢checkAttr")
         case .Name(let name):
-            print("Name = \(name)")
+            print("Name = \(name)", "🟢checkAttr")
         default:
             break
         }

@@ -40,7 +40,7 @@ public class URLSessionFunction {
                 try data.write(to: tmpURL)
                 completion(tmpURL)
             } catch {
-                print(error)
+                print("\("🟢")",error)
             }
             
         }.resume()
@@ -71,7 +71,7 @@ public class URLSessionFunction {
                 fatalError(error.localizedDescription)
             }
         }, receiveValue: { user in
-            print(user)
+            print("\("🟢")",user)
             completion()
         })
     }

@@ -28,7 +28,7 @@ public class JsonFunction: NSObject {
             fatalError("Failed to decode from JSON.")
         }
 
-        print(String(bytes: jsonValue, encoding: .utf8)!, "createJson")
-        print(employee, "createJson")
+        print(String(bytes: jsonValue, encoding: .utf8)!, "🟢createJson")
+        print(employee, "🟢createJson")
     }
 }

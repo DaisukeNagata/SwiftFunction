@@ -11,11 +11,11 @@ public class SwitchFunction {
     public func switchWhere(token: String?) {
         switch token {
         case let .some(value) where value.isEmpty:
-            print(value.isEmpty, "switchWhere")
+            print(value.isEmpty, "🟢switchWhere")
         case let .some(value):
-            print(value.isEmpty, "switchWhere")
+            print(value.isEmpty, "🟢switchWhere")
         case .none:
-            print(token ?? "nil", "switchWhere")
+            print(token ?? "nil", "🟢switchWhere")
         }
     }
 }

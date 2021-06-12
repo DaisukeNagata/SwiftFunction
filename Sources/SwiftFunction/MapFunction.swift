@@ -16,8 +16,8 @@ public class MapFunction: NSObject {
 
         let average = array.map { $0 }.reduce(.zero, +)/array.count
 
-        print(total)
-        print(average)
+        print("\("🟢")",total)
+        print("\("🟢")",average)
     }
     
     public func compactMapFunction(value: [Int?]) -> [Int]{

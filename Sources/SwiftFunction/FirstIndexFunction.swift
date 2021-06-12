@@ -13,7 +13,7 @@ public class FirstIndexFunction: NSObject {
         let scheduleArray = ["00","01","02"]
         for i in 0..<scheduleArray.count{
             if let firstIndex = scheduleArray.firstIndex(of: scheduleArray[i]) {
-                print(firstIndex, "firstIndexFunction")
+                print(firstIndex, "🟢firstIndexFunction")
             }
         }
     }
@@ -21,7 +21,7 @@ public class FirstIndexFunction: NSObject {
     public func checkIndexFunction(numArray: [Int?]) {
         for (i, v) in numArray.enumerated() {
             if ((numArray.firstIndex(where: { _ in 0 != v && v != nil })) != nil) {
-                print("index: \(i)", "checkIndexFunction")
+                print("index: \(i)",  "🟢checkIndexFunction")
             }
         }
     }

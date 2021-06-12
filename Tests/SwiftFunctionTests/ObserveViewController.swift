@@ -23,7 +23,7 @@ class TestController: XCTestCase {
         observeFunction.videoPlayer = AVPlayer(playerItem: playerItem)
         observeFunction.videoPlayer?.play()
         observeFunction.observeValue { call in
-            print(call ?? Float(0), "call")
+            print(call ?? Float(0), "🟢call")
             self.observeFunction.stopObserver()
         }
         

@@ -31,9 +31,9 @@ public class MemoryUsage {
         }
 
         if kerr == KERN_SUCCESS {
-            print("KERN_SUCCESS")
+            print("🟢KERN_SUCCESS")
         } else {
-            print("something")
+            print("🟢something")
         }
         return  "\(taskInfo.resident_size/1048576)"
     }
