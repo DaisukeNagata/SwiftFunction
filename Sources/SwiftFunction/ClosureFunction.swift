@@ -15,4 +15,8 @@ public class ClosureFunction: NSObject {
     public func numberComponent(value: Int?) -> Int? {
         return numberClosure(value)
     }
+    
+    public func escapingFunction(call: @escaping () -> Void) {
+        call()
+    }
 }

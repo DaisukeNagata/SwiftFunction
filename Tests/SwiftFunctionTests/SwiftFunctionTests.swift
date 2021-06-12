@@ -31,7 +31,7 @@
             // ClosureFunction
             print("--ClosureFunction--")
             print(closureFunction.numberComponent(value: 777) ?? 0)
-
+            closureFunction.escapingFunction { print("escapingFunction") }
             //DateFunction
             print("--DateFunction--")
             dateFunction.dateNowFunction(template: "yMMMdHms" ,identifier: "ja_JP")
