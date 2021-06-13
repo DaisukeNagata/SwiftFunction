@@ -20,6 +20,7 @@
         let stringFunction = StringFunction()
         let switchFunction = SwitchFunction()
         let stringSplitFunction = StringSplitFunction()
+        let userDefalutsFunction = UserDefalutsFunction()
         let whileFunction = WhileFunction()
 
         func testExample() {
@@ -141,6 +142,9 @@
             print("--ProtocolFunction--")
             protocolFunctionB.delegate = protocolFunctionA
             protocolFunctionB.delegate?.protocolFunction(type: "type")
+
+            // UserDefalutsFunction
+            userDefalutsFunction.userDefalutsSave()
 
             // WhileFunction
             print("--WhileFunction--")
