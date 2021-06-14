@@ -5,37 +5,38 @@
 //  Created by 永田大祐 on 2021/06/15.
 //
 
-import UIKit
-
-struct abc1 {
-   var asd = 1
+public struct Abc1 {
+    public var asd = 1
 }
 
-struct abc2 {
-    var asd = 2
+public struct Abc2 {
+    public var asd = 2
 }
 
-struct abc3 {
-    var asd = 3
+public struct Abc3 {
+    public var asd = 3
 }
 
 public class AnyFunction {
 
-    public func anyCheck() {
+    public func anyIndexDataCheck() {
         var sampleAny: [Any] = []
         var sampleAny2: [Any] = []
         var sampleAny3: [Any] = []
 
-        sampleAny = [abc1(), abc3(), abc3(), abc1(), abc2(), abc3()]
+        sampleAny = [Abc1(), Abc3(), Abc3(), Abc1(), Abc2(), Abc3()]
         for value in sampleAny {
-            if cast(value: value, type: abc1.self) != nil || cast(value: value, type: abc3.self) != nil {
+            if cast(value: value, type: Abc1.self) != nil || cast(value: value, type: Abc3.self) != nil {
                 sampleAny2.append(value)
             } else {
                 sampleAny3.append(value)
             }
         }
         print(sampleAny2, "🟢anyFunction")
-        print(sampleAny3, "🟢anyFunction")
+        guard let sample = sampleAny3 as? [Abc2] else { return }
+        sample.forEach { s in
+            print(s.asd, "🟢anyFunction")
+        }
     }
 
     func cast<A>(value: Any?, type: A.Type) -> A? { return value as? A }

@@ -27,7 +27,7 @@
         func testExample() {
             // AnyFunction
             print("--AnyFunction--")
-            anyFunction.anyCheck()
+            anyFunction.anyIndexDataCheck()
 
             // ClosureFunction
             print("--ClosureFunction--")
