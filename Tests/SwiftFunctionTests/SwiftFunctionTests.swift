@@ -2,6 +2,7 @@
     @testable import SwiftFunction
 
     final class SwiftFunctionTests: XCTestCase {
+        let anyFunction = AnyFunction()
         let closureFunction =  ClosureFunction()
         let dateFunction = DateFunction()
         let enumFunction =  EnumFunction()
@@ -24,10 +25,9 @@
         let whileFunction = WhileFunction()
 
         func testExample() {
-            // This is an example of a functional test case.
-            // Use XCTAssert and related functions to verify your tests produce the correct
-            // results.
-            // XCTAssertEqual(SwiftFunction.text, "Hello, World!")
+            // AnyFunction
+            print("--AnyFunction--")
+            anyFunction.anyCheck()
 
             // ClosureFunction
             print("--ClosureFunction--")
