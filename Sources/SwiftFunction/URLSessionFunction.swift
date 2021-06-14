@@ -71,7 +71,7 @@ public class URLSessionFunction {
                 fatalError(error.localizedDescription)
             }
         }, receiveValue: { user in
-            print("\("🟢")",user)
+            print("\("🟢combineResponse")",user)
             completion()
         })
     }
