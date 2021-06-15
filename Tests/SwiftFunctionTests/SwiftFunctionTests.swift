@@ -19,6 +19,7 @@
         let protocolFunctionB = ProtocolFunctionB()
         let sortedFunction = SortedFunction()
         let stringFunction = StringFunction()
+        let swapFunction = SwapFunction()
         let switchFunction = SwitchFunction()
         let stringSplitFunction = StringSplitFunction()
         let userDefalutsFunction = UserDefalutsFunction()
@@ -133,6 +134,9 @@
                                                                      title: "Google")
             print(attributedStr.string, "🟢stringAttributes")
             print(hyperlinkAtribute.string, "🟢hyperlinkAtribute")
+            
+            // SwapFunction
+            print(swapFunction.swapFUnction(a: [0,1], s: 0, e: 1), "🟢SwapFunction")
 
             // OrderedSetFunction
             print("--OrderedSetFunction--")
