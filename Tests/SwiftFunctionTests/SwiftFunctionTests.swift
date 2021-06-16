@@ -34,7 +34,18 @@
             print("--ClosureFunction--")
             print(closureFunction.numberComponent(value: 777) ?? 0, "🟢numberComponent")
             closureFunction.escapingFunction { print("🟢escapingFunction") }
-            //DateFunction
+
+            // DataFunction
+            print("--DataFunction--")
+            let data: Data? = "ðdata".data(using: .utf8)
+            guard let stringUTF8 = data?.isoLatin1 else { return }
+            print(stringUTF8,"🟢stringUTF8DataFunction")
+
+            let base64Encoded = Data.init(base64Encoded: "DataFunction")
+            guard let stringASCII = base64Encoded?.stringASCII else { return }
+            print(stringASCII,"🟢stringASCIIDataFunction")
+    
+            // DateFunction
             print("--DateFunction--")
             dateFunction.dateNowFunction(template: "yMMMdHms" ,identifier: "ja_JP")
             dateFunction.afterDate(template: "yMMMdHms", identifier: "ja_JP", byAdding: .day, value: 1)
@@ -136,6 +147,7 @@
             print(hyperlinkAtribute.string, "🟢hyperlinkAtribute")
             
             // SwapFunction
+            print("--SwapFunction--")
             print(swapFunction.swapFUnction(a: [0,1], s: 0, e: 1), "🟢SwapFunction")
 
             // OrderedSetFunction
@@ -148,6 +160,7 @@
             protocolFunctionB.delegate?.protocolFunction(type: "type")
 
             // UserDefalutsFunction
+            print("--UserDefalutsFunction--")
             userDefalutsFunction.userDefalutsSave()
 
             // WhileFunction
