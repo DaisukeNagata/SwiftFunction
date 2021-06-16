@@ -37,8 +37,8 @@
 
             // DataFunction
             print("--DataFunction--")
-            let data: Data? = "ðdata".data(using: .utf8)
-            guard let stringUTF8 = data?.isoLatin1 else { return }
+            let data: Data? = "data".data(using: .utf8)
+            guard let stringUTF8 = data?.stringUTF8 else { return }
             print(stringUTF8,"🟢stringUTF8DataFunction")
 
             let base64Encoded = Data.init(base64Encoded: "DataFunction")
@@ -49,6 +49,7 @@
             print("--DateFunction--")
             dateFunction.dateNowFunction(template: "yMMMdHms" ,identifier: "ja_JP")
             dateFunction.afterDate(template: "yMMMdHms", identifier: "ja_JP", byAdding: .day, value: 1)
+
             // EnumFunction
             print("--EnumFunction--")
             enumFunction.abcEnum(e: EnumFunction.ABC.a)
