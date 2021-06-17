@@ -5,6 +5,7 @@
         let anyFunction = AnyFunction()
         let closureFunction =  ClosureFunction()
         let dateFunction = DateFunction()
+        let dictionaryFunction = DictionaryFunction()
         let enumFunction =  EnumFunction()
         let firstIndexFunction = FirstIndexFunction()
         let forFunction =  ForFunction()
@@ -26,6 +27,7 @@
         let whileFunction = WhileFunction()
 
         func testExample() {
+
             // AnyFunction
             print("--AnyFunction--")
             anyFunction.anyIndexDataCheck()
@@ -49,6 +51,11 @@
             print("--DateFunction--")
             dateFunction.dateNowFunction(template: "yMMMdHms" ,identifier: "ja_JP")
             dateFunction.afterDate(template: "yMMMdHms", identifier: "ja_JP", byAdding: .day, value: 1)
+
+            // DictionaryFunction
+            print("--DictionaryFunction--")
+            print(dictionaryFunction.dictinarySetFunction(1, 2).key)
+            print(dictionaryFunction.dictinarySetFunction(1, 2).value)
 
             // EnumFunction
             print("--EnumFunction--")
