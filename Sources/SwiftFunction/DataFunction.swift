@@ -31,15 +31,6 @@ extension Data {
         }
     }
 
-    var uuid: NSUUID? {
-        get {
-            var bytes = [UInt8](repeating: 0, count: self.count)
-            self.copyBytes(to:&bytes, count: self.count * MemoryLayout<UInt32>.size)
-            return NSUUID(uuidBytes: bytes)
-        }
-    }
-    
-
     public var stringASCII: String? {
         get {
             return NSString(data: self, encoding: String.Encoding.ascii.rawValue) as String?

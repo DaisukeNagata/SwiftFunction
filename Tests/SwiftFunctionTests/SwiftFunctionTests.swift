@@ -40,6 +40,10 @@
             let data: Data? = "data".data(using: .utf8)
             guard let stringUTF8 = data?.stringUTF8 else { return }
             print(stringUTF8,"🟢stringUTF8DataFunction")
+            
+            let data: Data? = "data".data(using: .utf8)
+            guard let stringUTF8 = data?.udid else { return }
+            print(stringUTF8,"🟢udidFunction")
 
             let base64Encoded = Data.init(base64Encoded: "DataFunction")
             guard let stringASCII = base64Encoded?.stringASCII else { return }
