@@ -8,7 +8,7 @@
 import Foundation
 
 public class DictionaryFunction {
-    public func dictinarySetFunction<K, V>(_ key: K, _ value: V) -> (key: K, value: V) {
-        return (key: key, value: value)
+    public func dictinarySetFunction<K, V>(_ key: K, _ value: V) -> [K: V] {
+        return  [key: value]
     }
 }

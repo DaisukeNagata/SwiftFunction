@@ -54,8 +54,7 @@
 
             // DictionaryFunction
             print("--DictionaryFunction--")
-            print(dictionaryFunction.dictinarySetFunction(1, 2).key)
-            print(dictionaryFunction.dictinarySetFunction(1, 2).value)
+            print(dictionaryFunction.dictinarySetFunction(1, [1,nil,2,"3",4]))
 
             // EnumFunction
             print("--EnumFunction--")
