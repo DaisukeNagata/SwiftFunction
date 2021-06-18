@@ -4,6 +4,7 @@
     final class SwiftFunctionTests: XCTestCase {
         let anyFunction = AnyFunction()
         let closureFunction =  ClosureFunction()
+        let codableFunction = CodableFunction()
         let dateFunction = DateFunction()
         let dictionaryFunction = DictionaryFunction()
         let enumFunction =  EnumFunction()
@@ -36,6 +37,10 @@
             print("--ClosureFunction--")
             print(closureFunction.numberComponent(value: 777) ?? 0, "🟢numberComponent")
             closureFunction.escapingFunction { print("🟢escapingFunction") }
+            
+            // CodableFunction
+            print("--CodableFunction--")
+            codableFunction.codableDecoderfunction()
 
             // DataFunction
             print("--DataFunction--")
@@ -54,7 +59,7 @@
 
             // DictionaryFunction
             print("--DictionaryFunction--")
-            print(dictionaryFunction.dictinarySetFunction(1, [1,nil,2,"3",4]))
+            print(dictionaryFunction.dictinarySetFunction(1, [1,nil,2,"3",4]), "🟢dictinarySetFunction")
 
             // EnumFunction
             print("--EnumFunction--")
