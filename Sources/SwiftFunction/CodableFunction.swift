@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  CodableFunction.swift
 //  
 //
 //  Created by 永田大祐 on 2021/06/19.

@@ -13,6 +13,7 @@
         let genericsFunction = GenericsFunction()
         let hashFunction = HashFunction(sectionID: "123", itemID: "456")
         let jsonFunction = JsonFunction()
+        let logFunction = LogFunction()
         let mapFunction = MapFunction()
         let mathematicsFunction = MathematicsFunction(h: .zero, v:  .zero)
         let memoryUsage = MemoryUsage()
@@ -96,11 +97,15 @@
             var hasher = Hasher()
             hasher.combine(h.sectionIDHash)
             hasher.combine(h.itemIDHash)
-
+            
             let hash = hasher.finalize()
             print(h.sectionIDHash, "🟢sectionIDHash")
             print(h.itemIDHash, "🟢itemIDHash")
             print(hash, "🟢hash")
+
+            // LogFunction
+            print("--LogFunction--")
+            logFunction.logFunction()
 
             // JsonFunction
             print("--JsonFunction--")
