@@ -52,6 +52,10 @@
             let base64Encoded = Data.init(base64Encoded: "DataFunction")
             guard let stringASCII = base64Encoded?.stringASCII else { return }
             print(stringASCII,"🟢stringASCIIDataFunction")
+            
+            let hexEncoded = Data.init([0, 1, 127, 128, 255])
+            print(hexEncoded.hexEncodedString(),"🟢hexEncodedString")
+            print(hexEncoded.hexEncodedString(options: .upperCase),"🟢hexEncodedStringoptions")
     
             // DateFunction
             print("--DateFunction--")
