@@ -57,6 +57,9 @@
             print(hexEncoded.hexEncodedString(),"🟢hexEncodedString")
             print(hexEncoded.hexEncodedString(options: .upperCase),"🟢hexEncodedStringoptions")
     
+            let array8: [UInt8] = [1,2,3]
+            print(Data.init(array8).uint8,"🟢uint8")
+
             let array16: [UInt8] = [1,2,3]
             print(Data.init(array16).uint16,"🟢uint16")
     
