@@ -57,6 +57,9 @@
             print(hexEncoded.hexEncodedString(),"🟢hexEncodedString")
             print(hexEncoded.hexEncodedString(options: .upperCase),"🟢hexEncodedStringoptions")
     
+            let array: [UInt8] = [1,2,3,4]
+            print(Data.init(array).uint32,"🟢uint32")
+
             // DateFunction
             print("--DateFunction--")
             dateFunction.dateNowFunction(template: "yMMMdHms" ,identifier: "ja_JP")
