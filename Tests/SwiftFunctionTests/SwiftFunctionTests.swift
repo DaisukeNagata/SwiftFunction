@@ -73,7 +73,7 @@
             dateFunction.afterDate(template: "yMMMdHms", identifier: "ja_JP", byAdding: .day, value: 1)
             dateFunction.dateOrder()
             print(dateFunction.preferredLanguages() ?? "" , "🟢preferredLanguages")
-            print(dateFunction.isoCountryCodes() ?? "" , "🟢isoCountryCodes")
+            print(dateFunction.isoCountryCodes(), "🟢isoCountryCodes")
 
             // DictionaryFunction
             print("--DictionaryFunction--")
