@@ -47,7 +47,20 @@ public class DateFunction {
     }
 
     public func preferredLanguages() -> String? {
+
         NSLocale.preferredLanguages.first?.components(separatedBy: "-").first
+    }
+    
+    public func isoCountryCodes() -> [String] {
+        var countries: [String] = []
+
+        for code in NSLocale.isoCountryCodes {
+            let id = NSLocale.localeIdentifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
+            let name = NSLocale(localeIdentifier: preferredLanguages() ?? "").displayName(forKey: NSLocale.Key.identifier, value: id) ?? "Country not found for code: \(code)"
+            countries.append(name)
+        }
+
+       return countries
     }
 }
 
