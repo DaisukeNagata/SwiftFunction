@@ -65,11 +65,13 @@
     
             let array32: [UInt8] = [1,2,3,4]
             print(Data.init(array32).uint32,"🟢uint32")
+            
 
             // DateFunction
             print("--DateFunction--")
             dateFunction.dateNowFunction(template: "yMMMdHms" ,identifier: "ja_JP")
             dateFunction.afterDate(template: "yMMMdHms", identifier: "ja_JP", byAdding: .day, value: 1)
+            dateFunction.dateOrder()
 
             // DictionaryFunction
             print("--DictionaryFunction--")
