@@ -29,7 +29,7 @@
         let whileFunction = WhileFunction()
 
         func testExample() {
-
+            
             // AnyFunction
             print("--AnyFunction--")
             anyFunction.anyIndexDataCheck()
@@ -72,6 +72,7 @@
             dateFunction.dateNowFunction(template: "yMMMdHms" ,identifier: "ja_JP")
             dateFunction.afterDate(template: "yMMMdHms", identifier: "ja_JP", byAdding: .day, value: 1)
             dateFunction.dateOrder()
+            print(dateFunction.preferredLanguages() ?? "" , "🟢preferredLanguages")
 
             // DictionaryFunction
             print("--DictionaryFunction--")

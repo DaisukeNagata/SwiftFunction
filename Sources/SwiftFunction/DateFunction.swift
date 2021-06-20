@@ -45,6 +45,10 @@ public class DateFunction {
             print("🟢orderedDescending")
         }
     }
+
+    public func preferredLanguages() -> String? {
+        NSLocale.preferredLanguages.first?.components(separatedBy: "-").first
+    }
 }
 
 extension TimeZone {
