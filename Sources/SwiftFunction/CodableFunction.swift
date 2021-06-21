@@ -22,11 +22,11 @@ public struct PostGist: Codable {
     let `public`: Bool
     let files: Nestetd
 
-    struct Nestetd: Codable {
+    public struct Nestetd: Codable {
         let gist: Nestetd2
     }
 
-    struct Nestetd2: Codable {
+    public struct Nestetd2: Codable {
         let content: String
     }
 }
