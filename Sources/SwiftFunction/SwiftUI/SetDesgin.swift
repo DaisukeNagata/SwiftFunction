@@ -11,7 +11,6 @@ import SwiftUI
 public struct ContentView: View {
     public var body: some View {
         VStack {
-            Text("Please enter your name below")
             SetDesgin(c: Color.red) { Text("name") }
             SetDesgin(c: Color.yellow) {Text("name") }
             SetDesgin(c: Color.green) {Text("name") }
