@@ -8,6 +8,7 @@
         let dateFunction = DateFunction()
         let dictionaryFunction = DictionaryFunction()
         let enumFunction =  EnumFunction()
+        let filterFuntion = FilterFunction()
         let firstIndexFunction = FirstIndexFunction()
         let forFunction =  ForFunction()
         let genericsFunction = GenericsFunction()
@@ -85,6 +86,10 @@
             print(EnumFunction.Count(rawValue: 0)! , "🟢Count")
             print(enumFunction.checkAttr(attr: EnumFunction.Person.Age(age: 20)), "🟢checkAttr")
             print(enumFunction.checkAttr(attr: EnumFunction.Person.Name(name: "D")), "🟢checkAttr")
+
+            // FilterFunction
+            print("--FilterFunction--")
+            filterFuntion.filterFunction(numbers: [1, 2, 3, 4, 5, 6,7,8,9,10])
 
             // FirstIndexFunction
             print("--FirstIndexFunction--")
