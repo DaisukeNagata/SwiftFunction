@@ -8,7 +8,10 @@
 import Foundation
 
 public class FilterFunction {
-    public func filterFunction(numbers: [Int]) {
+    public func filterFunction(numbers: [Int]) {        
+        let andNumber = numbers.filter { $0 % 2 == 0 || $0 == 3 }
+        print(andNumber, "🟢andNumber")
+
         let evenNumber = numbers.filter { $0 % 2 == 0 }
         print(evenNumber, "🟢evenNumber") // [2, 4, 6, 8, 10]
          
