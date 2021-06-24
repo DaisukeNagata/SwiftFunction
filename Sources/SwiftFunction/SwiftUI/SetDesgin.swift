@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 14.0, *)
-public struct ContentView: View {
+struct ContentView: View {
     public var body: some View {
         VStack {
             SetDesgin(c: Color.red) { Text("name") }
@@ -19,11 +19,11 @@ public struct ContentView: View {
 }
 
 @available(iOS 14.0, *)
-public struct SetDesgin<Content:View>: View {
+struct SetDesgin<Content:View>: View {
 
     let c: Color
     let viewBuilder: () -> Content
-    public var body: some View {
+    var body: some View {
         viewBuilder()
             .frame(maxWidth: .infinity, maxHeight: 100)
             .background(c)
@@ -32,8 +32,8 @@ public struct SetDesgin<Content:View>: View {
 }
 
 @available(iOS 14.0, *)
-public struct ContentView_Previews : PreviewProvider {
-    public static var previews: some View {
+struct ContentView_Previews : PreviewProvider {
+    static var previews: some View {
     ContentView()
   }
 }
