@@ -20,5 +20,8 @@ public class FilterFunction {
 
         let overEight = numbers.filter{ $0 >= 8 }
         print(overEight, "🟢overEight")
+
+        let lazyNumber = numbers.lazy.filter{ $0 == 4 }.first
+        print(lazyNumber ?? 0, "🟢lazyNumber")
     }
 }

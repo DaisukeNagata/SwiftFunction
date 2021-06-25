@@ -89,7 +89,7 @@
 
             // FilterFunction
             print("--FilterFunction--")
-            filterFuntion.filterFunction(numbers: [1, 2, 3, 4, 5, 6,7,8,9,10])
+            filterFuntion.filterFunction(numbers: [1,2,3,4,5,6,7,8,9,10])
 
             // FirstIndexFunction
             print("--FirstIndexFunction--")
