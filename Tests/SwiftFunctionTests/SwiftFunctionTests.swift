@@ -28,6 +28,7 @@
         let stringSplitFunction = StringSplitFunction()
         let userDefalutsFunction = UserDefalutsFunction()
         let whileFunction = WhileFunction()
+        let wrapperFunction = WrapperFunction()
 
         func testExample() {
             
@@ -95,7 +96,7 @@
             print("--FirstIndexFunction--")
             firstIndexFunction.firstIndexFunction()
             firstIndexFunction.checkIndexFunction(numArray: [60, 70, 90, nil, 90, 0, 80, 80, 0, 80])
-
+            
             // ForFunction
             print("--ForFunction--")
             forFunction.forAction(start: 0, end: 10)
@@ -207,5 +208,9 @@
             print(whileFunction.whileCount(value: 10), "🟢whileCount")
             print(whileFunction.repeatCount(value: 10), "🟢repeatCount")
             print(whileFunction.whileJudge(value: 10), "🟢whileJudge")
+            
+            // WrapperFunction
+            print("--WrapperFunction--")
+            wrapperFunction.wrapperTestA()
         }
     }
