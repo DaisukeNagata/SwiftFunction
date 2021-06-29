@@ -2,6 +2,7 @@
     @testable import SwiftFunction
 
     final class SwiftFunctionTests: XCTestCase {
+        let actorFunction = ActorFunction()
         let anyFunction = AnyFunction()
         let closureFunction =  ClosureFunction()
         let codableFunction = CodableFunction()
@@ -30,8 +31,13 @@
         let whileFunction = WhileFunction()
         let wrapperFunction = WrapperFunction()
 
-        func testExample() {
-            
+        
+        func testExample() async {
+
+            // ActorFunction
+            print("--ActorFunction--")
+            await actorFunction.useCounter(counter: ActorFunction.Counter())
+
             // AnyFunction
             print("--AnyFunction--")
             anyFunction.anyIndexDataCheck()
@@ -213,4 +219,5 @@
             print("--WrapperFunction--")
             wrapperFunction.wrapperTestA()
         }
+        
     }
