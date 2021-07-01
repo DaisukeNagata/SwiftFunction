@@ -1,7 +1,17 @@
     import XCTest
     @testable import SwiftFunction
 
-    final class SwiftFunctionTests: XCTestCase {
+final class SwiftFunctionTests: XCTestCase, Copyable {
+    
+    func copy222(count: Int) -> Self {
+        let shared = self
+        return shared
+    }
+    
+    func copy22() -> Self {
+         self
+    }
+   
         let actorFunction = ActorFunction()
         let anyFunction = AnyFunction()
         let closureFunction =  ClosureFunction()
@@ -23,6 +33,7 @@
         let protocolFunctionA = ProtocolFunctionA()
         let protocolFunctionB = ProtocolFunctionB()
         let sortedFunction = SortedFunction()
+        let staticMemberFunction = StaticMemberFunction()
         let stringFunction = StringFunction()
         let swapFunction = SwapFunction()
         let switchFunction = SwitchFunction()
@@ -181,6 +192,9 @@
             // SortedFunction
             print("--SortedFunction--")
             sortedFunction.dicSorted(dic: ["111": 111, "222": 222, "333": 333, "444": 444, "555": 555])
+
+            print("StaticMemberFunction")
+            staticMemberFunction.test(c: self)
 
             // StringFunction
             print("--StringFunction--")
