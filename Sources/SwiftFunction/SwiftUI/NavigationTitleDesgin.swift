@@ -30,14 +30,14 @@ struct NavigationModifier: ViewModifier {
 
         return
             NavigationView {
-                Text("")
+                Text("Tap")
                     .navigationTitle(self.st)
                     .onTapGesture {
                         self.flg.toggle()
                     }
                     .onChange(of: self.flg) { value in
                         guard value else {
-                            c = c == UIColor.green ? UIColor.orange : UIColor.green
+                            c = c == UIColor.blue ? UIColor.orange : UIColor.blue
                             return
                         }
                     }
