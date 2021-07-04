@@ -149,7 +149,6 @@ final class SwiftFunctionTests: XCTestCase, Copyable {
 
             // JsonFunction
             print("--JsonFunction--")
-            /// ①初期オブジェクト生成
             let originalObject = JsonFunction.Employee(code: "001", name: "山田", age: 45, absence: false)
             jsonFunction.createJson(originalObject: originalObject)
     
@@ -160,18 +159,14 @@ final class SwiftFunctionTests: XCTestCase, Copyable {
             print(mapFunction.flatMapFunction(value: [[1, 2, 3], [1, 2, 3], [1, 2, 3]]), "🟢flatMapFunction")
             let items = ["A", "B", "C", "D", "A", "A"]
             print(items.indexes(of: "A"), "🟢indexes")
-            // MathematicsFunction
-            // 水平線からの角度を算出
+            // angle from the horizon
             print(mathematicsFunction.angle(a: CGPoint(x: 50, y: 50), b: CGPoint(x: 100, y: 100)), "🟢angle")
-
-            // 放物線の距離を算出
+            // calculate parabolic distance
             let p = MathematicsFunction(h: CGPoint(x: 50, y: 50), v: CGPoint(x: 100, y: 100))
             print(mathematicsFunction.angleLength(p1: CGPoint(x: 50, y: 50), p), "🟢angleLength")
-
-            // 座標に対する距離を算出
+            // distance to coordinates
             print(mathematicsFunction.distance(a: CGPoint(x: 50, y: 50), b: CGPoint(x: 100, y: 100)), "🟢distance")
-
-            // sin 角度に対する 正弦に相当　　cos 角度に対する余弦に相当　　tan 角度に対する正接に相当
+            // sin sine with respect to angle　　cos cosine for an angle　　tan tantangent to the angle
             print(mathematicsFunction.coordinate(cg: 100), "🟢coordinate")
 
             // MemoryUsage
