@@ -13,7 +13,7 @@ struct SafeAreaContentView: View {
         GeometryReader { geometry in
             Text("123")
                 .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
-                .background(self.safeArea(geometry) ? Color.green:Color.red)
+                .background(Color(hex: 0x123456, alpha: 1))
                 .onAppear {
                     self.allSafeArea(geometry)?.compactMap { m in
                         print(m, "allSafeArea")
