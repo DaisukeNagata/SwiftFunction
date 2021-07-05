@@ -1,5 +1,5 @@
 //
-//  AwaitAsyncFunction.swift
+//  AsyncAwaitFunction.swift
 //  
 //
 //  Created by 永田大祐 on 2021/07/06.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class AwaitAsyncFunction {
+public class AsyncAwaitFunction {
 
     public func process() async {
         let records = await fetch()
