@@ -5,8 +5,6 @@
 //  Created by 永田大祐 on 2021/07/06.
 //
 
-import Foundation
-
 public class AsyncAwaitFunction {
 
     public func process() async {
