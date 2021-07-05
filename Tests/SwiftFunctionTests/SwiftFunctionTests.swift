@@ -14,6 +14,7 @@ final class SwiftFunctionTests: XCTestCase, Copyable {
    
         let actorFunction = ActorFunction()
         let anyFunction = AnyFunction()
+        let awaitAsyncFunction = AwaitAsyncFunction()
         let closureFunction =  ClosureFunction()
         let codableFunction = CodableFunction()
         let dateFunction = DateFunction()
@@ -53,6 +54,10 @@ final class SwiftFunctionTests: XCTestCase, Copyable {
             print("--AnyFunction--")
             anyFunction.anyIndexDataCheck()
 
+            // AwaitAsyncFunction
+            print("--AwaitAsyncFunction--")
+            await awaitAsyncFunction.process()
+    
             // ClosureFunction
             print("--ClosureFunction--")
             print(closureFunction.numberComponent(value: 777) ?? 0, "🟢numberComponent")
