@@ -176,7 +176,7 @@ final class SwiftFunctionTests: XCTestCase, Copyable {
 
             // StringSplitFunction
             print("--StringSplitFunction--")
-            stringSplitFunction.stringSplit(str: "Hell12o, p3laygrou4.5nd", rangeSt: "[0-9-.]")
+            stringSplitFunction.stringSplit(str: "Hell12o, 　、　漢字 p3laygrou4.5nd", rangeSt: "[0-9-.　-、- -,-]")
 
             // SwitchFunction
             print("--SwitchFunction--")
