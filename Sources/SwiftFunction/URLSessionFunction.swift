@@ -76,3 +76,26 @@ public class URLSessionFunction {
         })
     }
 }
+
+extension URLSession {
+    @available(iOS 15.0, *)
+    func data(with url: URL) async throws -> Data {
+        try await withCheckedThrowingContinuation { continuation in
+            dataTask(with: url) { data, response, error in
+                if let error = error {
+                    print("error: \(error.localizedDescription)")
+                    continuation.resume(throwing: error)
+                    return
+                }
+
+                guard let data = data, let response = response as? HTTPURLResponse else {
+                    print("no data or no response")
+                    return
+                }
+                print("response: \(response)")
+                continuation.resume(returning: data)
+            }
+            .resume()
+        }
+    }
+}
