@@ -12,8 +12,10 @@ import XCTest
 final class URLSessionTests: XCTestCase {
 
     let uRLSessionFunction = URLSessionFunction()
+    let timerFunction = TimerFunction()
 
     func testAsync() {
+        delayTimerFunction(testCase: self, seconds: 5)
         delay(testCase: self, seconds: 10)
         delayFileManager(testCase: self, seconds: 10)
         delayCombine(testCase: self, seconds: 10)
@@ -62,6 +64,16 @@ final class URLSessionTests: XCTestCase {
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(seconds)) {
+            delayCombine.fulfill()
+        }
+        testCase.waitForExpectations(timeout: TimeInterval(seconds))
+    }
+
+    func delayTimerFunction(testCase: XCTestCase, seconds: Float) {
+        let delayCombine = testCase.expectation(description: "delayCombine")
+        timerFunction.timerFunction()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [self] in
+            timerFunction.timerStop()
             delayCombine.fulfill()
         }
         testCase.waitForExpectations(timeout: TimeInterval(seconds))
