@@ -11,6 +11,16 @@ import SwiftUI
 struct TextView: View {
     var body: some View {
         Text("Hello World")
+            .frame(minWidth: 0,
+                   idealWidth: 100,
+                   maxWidth: .infinity,
+                   minHeight: 0,
+                   idealHeight: 100,
+                   maxHeight: .infinity,
+                   alignment: .center)
+            .font(.largeTitle)
+            .foregroundColor(Color.black)
+            .padding()
     }
 }
 
