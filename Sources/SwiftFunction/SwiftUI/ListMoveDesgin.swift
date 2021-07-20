@@ -22,8 +22,7 @@ struct ListMoveDesginView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(numbers,
-                        id: \.self) { region in
+                ForEach(numbers, id: \.self) { region in
                     Text(region)
                 }
                 .onMove { indexSet,
