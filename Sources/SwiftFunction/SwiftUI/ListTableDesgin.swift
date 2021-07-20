@@ -9,6 +9,7 @@ import SwiftUI
 
 @available(iOS 15.0, *)
 struct ListTableView: View {
+
     @State private var number = ["1"]
     
     var body: some View {
@@ -29,13 +30,8 @@ struct ListTableView: View {
                     number.remove(at: indexSet.first!)
                 })
             }
-            .listStyle(InsetGroupedListStyle())
-            .navigationTitle("番号")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar { EditButton() }
         }
-        .navigationBarItems(trailing: EditButton())
-        .padding()
     }
 
     private func tapAction() {
