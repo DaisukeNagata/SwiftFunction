@@ -45,7 +45,7 @@ struct CameraButtonsView: View {
                 Button(action: {
                     print(i)
                 }) {
-                    if self.text[i] == "" {
+                    if self.text[i].isEmpty {
                         Image(systemName: "camera.circle.fill")
                             .renderingMode(.original)
                             .resizable()
