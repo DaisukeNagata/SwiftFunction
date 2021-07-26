@@ -51,8 +51,10 @@ struct CameraButtonsView: View {
                             .resizable()
                             .frame(width: 50, height: 50, alignment: .center)
                     } else {
+                        Spacer()
                         Text(self.text[i])
                             .frame(width: 50, height: 50, alignment: .center)
+                        Spacer()
                     }
                 }
             }

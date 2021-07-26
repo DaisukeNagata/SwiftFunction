@@ -13,7 +13,7 @@ struct Rotation3DEffectView: View {
         Text("HelloWorld")
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .font(.system(size: 80))
-            .rotation3DEffect(.degrees(75), axis: (x: 1, y: 0, z: 0))
+            .rotation3DEffect(.degrees(45), axis: (x: 1, y: 0, z: 0))
             .foregroundColor(.white)
             .background(.black)
     }
