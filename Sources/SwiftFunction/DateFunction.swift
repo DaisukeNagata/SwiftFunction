@@ -102,17 +102,17 @@ extension Locale {
 extension Date {
 
     init(year: Int? = nil, month: Int? = nil, day: Int? = nil, hour: Int? = nil, minute: Int? = nil, second: Int? = nil) {
-            self.init(
-                timeIntervalSince1970: Date().fixed(
-                    year:   year,
-                    month:  month,
-                    day:    day,
-                    hour:   hour,
-                    minute: minute,
-                    second: second
-                ).timeIntervalSince1970
-            )
-        }
+        self.init(
+            timeIntervalSince1970: Date().fixed(
+                year:   year,
+                month:  month,
+                day:    day,
+                hour:   hour,
+                minute: minute,
+                second: second
+            ).timeIntervalSince1970
+        )
+    }
 
     var weekName: String {
         let index = calendar.component(.weekday, from: self) - 1 // index値を 1〜7 から 0〜6 にしている
