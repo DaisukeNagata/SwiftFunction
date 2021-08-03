@@ -45,14 +45,14 @@ struct CameraButtonsView: View {
                 Button(action: {
                     print(i)
                 }) {
-                    if self.text[i].isEmpty {
+                    if text[i].isEmpty {
                         Image(systemName: "camera.circle.fill")
                             .renderingMode(.original)
                             .resizable()
                             .frame(width: 50, height: 50, alignment: .center)
                     } else {
                         Spacer()
-                        Text(self.text[i])
+                        Text(text[i])
                             .frame(width: 50, height: 50, alignment: .center)
                         Spacer()
                     }

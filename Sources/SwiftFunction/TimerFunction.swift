@@ -11,7 +11,7 @@ public class TimerFunction {
     public var timer: Timer!
 
     public func timerFunction() {
-        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.startTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(startTimer), userInfo: nil, repeats: true)
     }
     
     public func timerStop() {

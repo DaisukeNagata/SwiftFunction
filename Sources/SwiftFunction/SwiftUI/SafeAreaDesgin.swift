@@ -15,7 +15,7 @@ struct SafeAreaContentView: View {
                 .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                 .background(Color(hex: 0x123456, alpha: 1))
                 .onAppear {
-                    self.allSafeArea(geometry)?.compactMap { m in
+                    allSafeArea(geometry)?.compactMap { m in
                         print(m, "allSafeArea")
                     }.first
             }

@@ -27,7 +27,7 @@ struct CardListContentView: View {
     var body: some View {
         List {
             ForEach(self.viewModel.spIndex.indices, id: \.self) { tex in
-                CardListRow(tx: self.viewModel.spIndex[tex])
+                CardListRow(tx: viewModel.spIndex[tex])
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                         .listRowInsets(EdgeInsets())
                         .background(Color.white)

@@ -17,10 +17,10 @@ struct TabBarContentView: View {
             VStack {
                 Spacer()
                 HStack {
-                    self.modifier(TabModifier(selection:  self.$selection, viewRouter: self.viewRouter, tag: 1))
-                    self.modifier(TabModifier(selection:  self.$selection,viewRouter: self.viewRouter, tag: 2))
-                    self.modifier(TabModifier(selection:  self.$selection, viewRouter: self.viewRouter, tag: 3))
-                    self.modifier(TabModifier(selection:  self.$selection,viewRouter: self.viewRouter, tag: 4))
+                    modifier(TabModifier(selection:  $selection, viewRouter: viewRouter, tag: 1))
+                    modifier(TabModifier(selection:  $selection,viewRouter: viewRouter, tag: 2))
+                    modifier(TabModifier(selection:  $selection, viewRouter: viewRouter, tag: 3))
+                    modifier(TabModifier(selection:  $selection,viewRouter: viewRouter, tag: 4))
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height/10)
             }
@@ -64,30 +64,30 @@ struct TabModifier: ViewModifier {
         
         return GeometryReader { geometry in
             VStack {
-                if self.tag == 1 {
+                if tag == 1 {
                     Divider()
-                        .frame(width: self.width, alignment: .bottom).offset(y: -8)
+                        .frame(width: width, alignment: .bottom).offset(y: -8)
                 }
             }
             HStack {
-                Image(systemName: self.iconName())
+                Image(systemName: iconName())
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .padding(20)
-                    .frame(width: geometry.size.width, height: self.width/4 - 20)
-                    .foregroundColor(self.fgColor())
+                    .frame(width: geometry.size.width, height: width/4 - 20)
+                    .foregroundColor(fgColor())
                     .onTapGesture {
-                        self.selection.wrappedValue = self.tag
+                        selection.wrappedValue = tag
                 }
             }
         }
     }
 
     private func fgColor() -> Color {
-        return selection.wrappedValue == self.tag ? Color(UIColor.systemBlue) : Color(UIColor.systemGray)
+        return selection.wrappedValue == tag ? Color(UIColor.systemBlue) : Color(UIColor.systemGray)
     }
     
     private func iconName() -> String {
-        return selection.wrappedValue == self.tag ? icon[self.tag].name : viewRouter.heartView
+        return selection.wrappedValue == tag ? icon[tag].name : viewRouter.heartView
     }
 }

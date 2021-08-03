@@ -38,7 +38,7 @@ struct HorizonalTapContentView: View {
                         
                     }
                     .padding(40)
-                    .background( event.id == self.viewModel.count ? self.viewModel.backColor : self.viewModel.indexColor[event.id])
+                    .background( event.id == viewModel.count ? viewModel.backColor : viewModel.indexColor[event.id])
                     .cornerRadius(10)
                     .onTapGesture {
                         var s = self

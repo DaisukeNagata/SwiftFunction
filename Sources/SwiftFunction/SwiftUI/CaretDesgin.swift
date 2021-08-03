@@ -28,8 +28,8 @@ struct CaretContentView: View {
                     // write something
                 })
                 self.text.isEmpty == false ?
-                    HorizontalLine(color: self.didTap ? Color.red : Color.black) :
-                    HorizontalLine(color: self.didTap ? Color.black : Color.red)
+                    HorizontalLine(color: didTap ? Color.red : Color.black) :
+                    HorizontalLine(color: didTap ? Color.black : Color.red)
 
                 SATextField(tag: 1, placeholder: "placeholder2", changeHandler: { (newString) in
                     self.text2 = newString
@@ -62,7 +62,7 @@ struct HorizontalLine: View {
     }
 
     var body: some View {
-        HorizontalLineShape().fill(self.color!).frame(minWidth: 0, maxWidth: .infinity, minHeight: height, maxHeight: height)
+        HorizontalLineShape().fill(color!).frame(minWidth: 0, maxWidth: .infinity, minHeight: height, maxHeight: height)
     }
 }
 @available(iOS 14.0, *)

@@ -62,7 +62,7 @@ struct RingShape: Shape {
         let height = rect.height
         let radius = min(width, height) / 2
         let center = CGPoint(x: width / 2, y: height / 2)
-        let endAngle = Angle(degrees: RingShape.percentToAngle(percent: self.percent, startAngle: self.startAngle))
+        let endAngle = Angle(degrees: RingShape.percentToAngle(percent: percent, startAngle: startAngle))
         return Path { path in
             path.addArc(center: center, radius: radius, startAngle: Angle(degrees: startAngle), endAngle: endAngle, clockwise: drawnClockwise)
         }
@@ -85,7 +85,7 @@ struct PercentageRing: View {
         self.percent >= 100 ? relativePercentageAngle - 360 : startAngle
     }
     private var absolutePercentageAngle: Double {
-        RingShape.percentToAngle(percent: self.percent, startAngle: 0)
+        RingShape.percentToAngle(percent: percent, startAngle: 0)
     }
     private var relativePercentageAngle: Double {
         // Take into account the startAngle
@@ -99,9 +99,9 @@ struct PercentageRing: View {
     }
     private var ringGradient: AngularGradient {
         AngularGradient(
-            gradient: Gradient(colors: self.foregroundColors),
+            gradient: Gradient(colors: foregroundColors),
             center: .center,
-            startAngle: Angle(degrees: self.gradientStartAngle),
+            startAngle: Angle(degrees: gradientStartAngle),
             endAngle: Angle(degrees: relativePercentageAngle)
         )
     }
@@ -118,28 +118,28 @@ struct PercentageRing: View {
             ZStack {
                 // Background for the ring
                 RingShape()
-                    .stroke(style: StrokeStyle(lineWidth: self.ringWidth))
-                    .fill(self.backgroundColor)
+                    .stroke(style: StrokeStyle(lineWidth: ringWidth))
+                    .fill(backgroundColor)
                 // Foreground
-                RingShape(percent: self.percent, startAngle: self.startAngle)
-                    .stroke(style: StrokeStyle(lineWidth: self.ringWidth, lineCap: .round))
-                    .fill(self.ringGradient)
+                RingShape(percent: percent, startAngle: startAngle)
+                    .stroke(style: StrokeStyle(lineWidth: ringWidth, lineCap: .round))
+                    .fill(ringGradient)
                 // End of ring with drop shadow
-                if self.getShowShadow(frame: geometry.size) {
+                if getShowShadow(frame: geometry.size) {
                     Circle()
-                        .fill(self.lastGradientColor)
-                        .frame(width: self.ringWidth, height: self.ringWidth, alignment: .center)
-                        .offset(x: self.getEndCircleLocation(frame: geometry.size).0,
-                                y: self.getEndCircleLocation(frame: geometry.size).1)
+                        .fill(lastGradientColor)
+                        .frame(width: ringWidth, height: self.ringWidth, alignment: .center)
+                        .offset(x: getEndCircleLocation(frame: geometry.size).0,
+                                y: getEndCircleLocation(frame: geometry.size).1)
                         .shadow(color: PercentageRing.ShadowColor,
                                 radius: PercentageRing.ShadowRadius,
-                                x: self.getEndCircleShadowOffset().0,
-                                y: self.getEndCircleShadowOffset().1)
+                                x: getEndCircleShadowOffset().0,
+                                y: getEndCircleShadowOffset().1)
                 }
             }
         }
         // Padding to ensure that the entire ring fits within the view size allocated
-        .padding(self.ringWidth / 2)
+        .padding(ringWidth / 2)
     }
     
     private func getEndCircleLocation(frame: CGSize) -> (CGFloat, CGFloat) {
@@ -150,7 +150,7 @@ struct PercentageRing: View {
     }
     
     private func getEndCircleShadowOffset() -> (CGFloat, CGFloat) {
-        let angleForOffset = absolutePercentageAngle + (self.startAngle + 90)
+        let angleForOffset = absolutePercentageAngle + (startAngle + 90)
         let angleForOffsetInRadians = angleForOffset.toRadians()
         let relativeXOffset = cos(angleForOffsetInRadians)
         let relativeYOffset = sin(angleForOffsetInRadians)
@@ -162,9 +162,9 @@ struct PercentageRing: View {
     private func getShowShadow(frame: CGSize) -> Bool {
         let circleRadius = min(frame.width, frame.height) / 2
         let remainingAngleInRadians = (360 - absolutePercentageAngle).toRadians().toCGFloat()
-        if self.percent >= 100 {
+        if percent >= 100 {
             return true
-        } else if circleRadius * remainingAngleInRadians <= self.ringWidth {
+        } else if circleRadius * remainingAngleInRadians <= ringWidth {
             return true
         }
         return false
