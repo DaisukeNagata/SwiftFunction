@@ -24,18 +24,18 @@ struct NavigationModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = self.c
+        appearance.backgroundColor = c
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
 
         return
             NavigationView {
                 Text("Tap")
-                    .navigationTitle(self.st)
+                    .navigationTitle(st)
                     .onTapGesture {
-                        self.flg.toggle()
+                        flg.toggle()
                     }
-                    .onChange(of: self.flg) { value in
+                    .onChange(of: flg) { value in
                         guard value else {
                             c = c == UIColor.blue ? UIColor.orange : UIColor.blue
                             return
