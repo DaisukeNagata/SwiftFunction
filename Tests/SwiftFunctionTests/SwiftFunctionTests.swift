@@ -154,7 +154,9 @@ final class SwiftFunctionTests: XCTestCase, Copyable {
         // JsonFunction
         print("--JsonFunction--")
         let originalObject = JsonFunction.Employee(code: "001", name: "山田", age: 45, absence: false)
+        let originalObjectArray = JsonFunction.EmployeeArray(employeeArray: [originalObject,originalObject])
         jsonFunction.createJson(originalObject: originalObject)
+        jsonFunction.createJsonArray(originalObject: originalObjectArray)
 
         // MapFunction
         print("--MapFunction--")
