@@ -12,8 +12,10 @@ struct AlertView: View {
     @ObservedObject private var viewModel = AlertViewModel()
     var body: some View {
         ZStack {
-            Text("Hello")
-            self.modifier(AlertModifer(view:  AnyView(AlertChoiceView(viewModel: self.viewModel))))
+            Text("Hello").onTapGesture {
+                viewModel.alertModel.flg.toggle()
+            }
+            self.modifier(AlertModifer(view:  AnyView(AlertChoiceView(viewModel: self.viewModel)))).isHidden(viewModel.alertModel.flg)
         }
     }
 }
@@ -25,10 +27,20 @@ struct AlertView_Previews: PreviewProvider {
     }
 }
 
+@available(iOS 14.0, *)
+struct AlertModel: Identifiable {
+    let id: Int
+    var flg: Bool
+    var edge: Edge
+    var offSet: CGFloat
+}
 
 @available(iOS 14.0, *)
 class AlertViewModel: ObservableObject {
-    @Published var alertModel = AlertModel(id:0, edge: Edge.bottom, offSet: UIScreen.main.bounds.height/2)
+    @Published var alertModel = AlertModel(id:0,
+                                           flg: false,
+                                           edge: Edge.bottom,
+                                           offSet:UIScreen.main.bounds.height/2)
 }
 
 @available(iOS 14.0, *)
@@ -36,19 +48,11 @@ struct AlertModifer: ViewModifier {
     var view: AnyView? = AnyView( EmptyView() ) {
         didSet {
             print("AlertModifer")
-            
         }
     }
     func body(content: Content) -> some View {
         return view
     }
-}
-
-@available(iOS 14.0, *)
-struct AlertModel: Identifiable {
-    let id: Int
-    var edge: Edge
-    var offSet: CGFloat
 }
 
 @available(iOS 14.0, *)
@@ -60,38 +64,64 @@ struct AlertChoiceView: View {
         GeometryReader { geometry in
             ZStack {
                 Color.gray
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .frame(maxWidth: .infinity,
+                           maxHeight: .infinity)
                     .onTapGesture {
                         withAnimation {
-                            viewModel.alertModel.offSet == UIScreen.main.bounds.height ?
-                            windowAnimation(divide: 2) :
-                            windowAnimation(divide: 1)
+                            windowAnimation()
                         }
                     }
-                    .opacity(opacity())
+                    .opacity(viewModel.alertModel.flg ? 0 : 0.5)
                     .edgesIgnoringSafeArea(.all)
-                
-                Color.white
-                    .transition(.move(edge: viewModel.alertModel.edge))
-                    .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
-                    .cornerRadius(15, corners: [.topLeft, .topRight])
-                    
-                    .gesture(DragGesture()
-                                .onChanged({ value in
-                        viewModel.alertModel.offSet = (value.translation.height*0.1) + viewModel.alertModel.offSet
-                    }))
-                    .offset(y: viewModel.alertModel.offSet)
+                ZStack {
+                    SetAlertDesgin(viewModel: viewModel) {
+                        Color.white
+                            .frame(width: geometry.size.width,
+                                   height: geometry.size.height,
+                                   alignment: .center)
+                    }
+                    SetAlertDesgin(viewModel: viewModel) {
+                        Text("World")
+                            .frame(width: geometry.size.width,
+                                   alignment: .center)
+                    }
+                }
             }
         }
     }
-    
-    func opacity() -> CGFloat {
-        self.viewModel.alertModel.offSet == UIScreen.main.bounds.height ? 0.01 : 0.8
+
+    func opacity() -> Bool {
+        viewModel.alertModel.offSet == UIScreen.main.bounds.height ? true : false
     }
 
-    func windowAnimation(divide: CGFloat) {
+    func windowAnimation() {
+
         withAnimation(.easeInOut(duration: 0.5)) {
-            self.viewModel.alertModel.offSet = UIScreen.main.bounds.height / divide
+            viewModel.alertModel.offSet = UIScreen.main.bounds.height*1.2
+        }
+        
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+            self.viewModel.alertModel.offSet = UIScreen.main.bounds.height/2
+            self.viewModel.alertModel.flg.toggle()
+        }
+    }
+}
+
+@available(iOS 14.0, *)
+private struct SetAlertDesgin<Content:View>: View {
+
+    @ObservedObject var viewModel: AlertViewModel
+    let viewBuilder: () -> Content
+    var body: some View {
+        GeometryReader { geometry in
+        viewBuilder()
+            .transition(.move(edge: viewModel.alertModel.edge))
+            .cornerRadius(15, corners: [.topLeft, .topRight])
+            .gesture(DragGesture()
+                        .onChanged({ value in
+                viewModel.alertModel.offSet = (value.translation.height*0.1) + viewModel.alertModel.offSet
+            }))
+            .offset(y: viewModel.alertModel.offSet)
         }
     }
 }
