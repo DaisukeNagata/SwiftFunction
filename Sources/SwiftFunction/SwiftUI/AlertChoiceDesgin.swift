@@ -15,7 +15,9 @@ struct AlertView: View {
             Text("Hello").onTapGesture {
                 viewModel.alertModel.flg.toggle()
             }
-            self.modifier(AlertModifer(view:  AnyView(AlertChoiceView(viewModel: self.viewModel)))).isHidden(viewModel.alertModel.flg)
+            AnyView(
+                AlertChoiceView(viewModel: self.viewModel)
+            ).isHidden(viewModel.alertModel.flg)
         }
     }
 }
@@ -41,18 +43,6 @@ class AlertViewModel: ObservableObject {
                                            flg: false,
                                            edge: Edge.bottom,
                                            offSet:UIScreen.main.bounds.height/2)
-}
-
-@available(iOS 14.0, *)
-struct AlertModifer: ViewModifier {
-    var view: AnyView? = AnyView( EmptyView() ) {
-        didSet {
-            print("AlertModifer")
-        }
-    }
-    func body(content: Content) -> some View {
-        return view
-    }
 }
 
 @available(iOS 14.0, *)
