@@ -77,7 +77,7 @@ struct AlertChoiceView: View {
                     SetAlertDesgin(viewModel: viewModel) {
                         Color.white
                             .frame(width: geometry.size.width,
-                                   height: geometry.size.height,
+                                   height: geometry.size.height*1.2,
                                    alignment: .center)
                     }
                     SetAlertDesgin(viewModel: viewModel) {
