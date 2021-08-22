@@ -11,7 +11,10 @@ import SwiftUI
 struct AlertView: View {
     @ObservedObject private var viewModel = AlertViewModel()
     var body: some View {
-        self.modifier(AlertModifer(view:  AnyView(AlertChoiceView(viewModel: self.viewModel))))
+        ZStack {
+            Text("Hello")
+            self.modifier(AlertModifer(view:  AnyView(AlertChoiceView(viewModel: self.viewModel))))
+        }
     }
 }
 
@@ -65,7 +68,7 @@ struct AlertChoiceView: View {
                             windowAnimation(divide: 1)
                         }
                     }
-                    .opacity(0.4)
+                    .opacity(opacity())
                     .edgesIgnoringSafeArea(.all)
                 
                 Color.white
@@ -80,6 +83,10 @@ struct AlertChoiceView: View {
                     .offset(y: viewModel.alertModel.offSet)
             }
         }
+    }
+    
+    func opacity() -> CGFloat {
+        self.viewModel.alertModel.offSet == UIScreen.main.bounds.height ? 0.01 : 0.8
     }
 
     func windowAnimation(divide: CGFloat) {
