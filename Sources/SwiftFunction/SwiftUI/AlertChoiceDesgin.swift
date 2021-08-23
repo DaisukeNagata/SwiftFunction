@@ -57,9 +57,7 @@ struct AlertChoiceView: View {
                     .frame(maxWidth: .infinity,
                            maxHeight: .infinity)
                     .onTapGesture {
-                        withAnimation {
-                            windowAnimation()
-                        }
+                        closeAnimation()
                     }
                     .opacity(0.5)
                     .edgesIgnoringSafeArea(.all)
@@ -77,19 +75,29 @@ struct AlertChoiceView: View {
                     }
                 }
             }
+            .onAppear {
+                if !viewModel.alertModel.flg {
+                    openAnimation()
+                }
+            }
         }
     }
 
-    func windowAnimation() {
-
+    func closeAnimation() {
         withAnimation(.easeInOut(duration: 0.5)) {
             viewModel.alertModel.offSet = UIScreen.main.bounds.height*1.2
         }
-
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
             viewModel.alertModel.offSet = UIScreen.main.bounds.height/2
             viewModel.alertModel.flg
                 .toggle()
+        }
+    }
+
+    func openAnimation() {
+        viewModel.alertModel.offSet = UIScreen.main.bounds.height*1.2
+        withAnimation(.easeInOut(duration: 0.5)) {
+            viewModel.alertModel.offSet = UIScreen.main.bounds.height/2
         }
     }
 }
