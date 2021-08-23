@@ -61,7 +61,7 @@ struct AlertChoiceView: View {
                             windowAnimation()
                         }
                     }
-                    .opacity(viewModel.alertModel.flg ? 0 : 0.5)
+                    .opacity(0.5)
                     .edgesIgnoringSafeArea(.all)
                 ZStack {
                     SetAlertDesgin(viewModel: viewModel) {
@@ -80,10 +80,6 @@ struct AlertChoiceView: View {
         }
     }
 
-    func opacity() -> Bool {
-        viewModel.alertModel.offSet == UIScreen.main.bounds.height ? true : false
-    }
-
     func windowAnimation() {
 
         withAnimation(.easeInOut(duration: 0.5)) {
@@ -92,7 +88,6 @@ struct AlertChoiceView: View {
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
             self.viewModel.alertModel.offSet = UIScreen.main.bounds.height/2
-            self.viewModel.alertModel.flg.toggle()
         }
     }
 }
