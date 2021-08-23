@@ -85,9 +85,11 @@ struct AlertChoiceView: View {
         withAnimation(.easeInOut(duration: 0.5)) {
             viewModel.alertModel.offSet = UIScreen.main.bounds.height*1.2
         }
-        
+
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
-            self.viewModel.alertModel.offSet = UIScreen.main.bounds.height/2
+            viewModel.alertModel.offSet = UIScreen.main.bounds.height/2
+            viewModel.alertModel.flg
+                .toggle()
         }
     }
 }
