@@ -27,7 +27,10 @@ struct ShutterDesginView: View {
     
     var body: some View {
         ZStack {
-        GeometryReader { geometry in
+            Button("toggle") {
+                self.notificationShown.toggle()
+            }
+            GeometryReader { geometry in
                 if self.notificationShown {
                     ShutterView {
                         ZStack {
@@ -37,13 +40,13 @@ struct ShutterDesginView: View {
                                        alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             Text("Some Thing.....")
                                 .offset(y: -geometry.size.width/8)
+                                .onTapGesture {
+                                    self.notificationShown.toggle()
+                                }
                         }
                     }
                     .edgesIgnoringSafeArea(.all)
                 }
-            }
-            Button("toggle") {
-                self.notificationShown.toggle()
             }
         }
     }
