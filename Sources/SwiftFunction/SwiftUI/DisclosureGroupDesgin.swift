@@ -23,8 +23,11 @@ struct DisclosureGroupDesginView: View {
         DisclosureGroup("Items", isExpanded: $topExpanded) {
             Toggle("Toggle 1", isOn: $toggleStates.oneIsOn)
             Toggle("Toggle 2", isOn: $toggleStates.twoIsOn)
+
             DisclosureGroup("Sub-items") {
+                ZStack {
                 Text("Sub-item 1")
+                }
             }
         }
     }

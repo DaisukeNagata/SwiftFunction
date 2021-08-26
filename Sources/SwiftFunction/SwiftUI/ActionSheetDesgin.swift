@@ -8,29 +8,29 @@
 import SwiftUI
 
 @available(iOS 14.0, *)
-struct AlertView: View {
-    @ObservedObject private var viewModel = AlertViewModel()
+struct ActionSheetView: View {
+    @ObservedObject private var viewModel = ActionSheetViewModel()
     var body: some View {
         ZStack {
             Text("Hello").onTapGesture {
                 viewModel.alertModel.flg.toggle()
             }
             AnyView(
-                AlertChoiceView(viewModel: self.viewModel)
+                ActionSheetChoiceView(viewModel: self.viewModel)
             ).isHidden(viewModel.alertModel.flg)
         }
     }
 }
 
 @available(iOS 14.0, *)
-struct AlertView_Previews: PreviewProvider {
+struct ActionSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        AlertView()
+        ActionSheetView()
     }
 }
 
 @available(iOS 14.0, *)
-struct AlertModel: Identifiable {
+struct ActionSheetModel: Identifiable {
     let id: Int
     var flg: Bool
     var edge: Edge
@@ -38,17 +38,17 @@ struct AlertModel: Identifiable {
 }
 
 @available(iOS 14.0, *)
-class AlertViewModel: ObservableObject {
-    @Published var alertModel = AlertModel(id:0,
+class ActionSheetViewModel: ObservableObject {
+    @Published var alertModel = ActionSheetModel(id:0,
                                            flg: false,
                                            edge: Edge.bottom,
                                            offSet:UIScreen.main.bounds.height/2)
 }
 
 @available(iOS 14.0, *)
-struct AlertChoiceView: View {
+struct ActionSheetChoiceView: View {
 
-    @ObservedObject var viewModel: AlertViewModel
+    @ObservedObject var viewModel: ActionSheetViewModel
 
     var body: some View {
         GeometryReader { geometry in
@@ -62,13 +62,13 @@ struct AlertChoiceView: View {
                     .opacity(0.5)
                     .edgesIgnoringSafeArea(.all)
                 ZStack {
-                    SetAlertDesgin(viewModel: viewModel) {
+                    ActionSheetDesgin(viewModel: viewModel) {
                         Color.white
                             .frame(width: geometry.size.width,
                                    height: geometry.size.height*1.2,
                                    alignment: .center)
                     }
-                    SetAlertDesgin(viewModel: viewModel) {
+                    ActionSheetDesgin(viewModel: viewModel) {
                         Text("World")
                             .frame(width: geometry.size.width,
                                    alignment: .center)
@@ -103,9 +103,9 @@ struct AlertChoiceView: View {
 }
 
 @available(iOS 14.0, *)
-private struct SetAlertDesgin<Content:View>: View {
+private struct ActionSheetDesgin<Content:View>: View {
 
-    @ObservedObject var viewModel: AlertViewModel
+    @ObservedObject var viewModel: ActionSheetViewModel
     let viewBuilder: () -> Content
     var body: some View {
         GeometryReader { geometry in

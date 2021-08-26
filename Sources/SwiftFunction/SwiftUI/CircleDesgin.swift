@@ -9,7 +9,9 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 struct CirecleView: View {
+
     @State private var flag = true
+
     var body: some View {
         ZStack {
             Circle()
