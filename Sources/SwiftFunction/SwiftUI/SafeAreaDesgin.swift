@@ -27,13 +27,11 @@ struct SafeAreaContentView: View {
         safeAreaArray.append(safeArea.safeAreaInsets.top)
         safeAreaArray.append(safeArea.safeAreaInsets.bottom)
         safeAreaArray.append(safeArea.safeAreaInsets.leading)
+        safeAreaArray.append(safeArea.safeAreaInsets.trailing)
         return safeAreaArray
     }
-
-    func safeArea(_ safeArea: GeometryProxy) -> Bool {
-        return safeArea.safeAreaInsets.bottom == 0 ? false : true
-    }
 }
+
 @available(iOS 14.0, *)
 struct SafeAreaContentView_Previews: PreviewProvider {
     static var previews: some View {
