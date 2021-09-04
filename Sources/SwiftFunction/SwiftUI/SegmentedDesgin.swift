@@ -9,10 +9,11 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 struct SegmentedView: View {
+
     @State private var edgeFront = Edge.leading
     @State private var edgeBack = Edge.trailing
     @State private var selectedIndex = 0
-    
+
     var body: some View {
         VStack(spacing:0) {
             Picker("123", selection: self.$selectedIndex) {
@@ -29,88 +30,91 @@ struct SegmentedView: View {
             
             switch selectedIndex {
             case 0:
-                viewA
-                    .transition(
-                        .asymmetric(
-                            insertion: .move(edge: .trailing),
-                            removal: .move(edge: .leading)
-                        ))
-                    .animation(.default)
+                viewSet(edgeFront: .trailing,
+                        edgeBack: .leading,
+                        color: .blue,
+                        text: "A")
             case 1:
-                viewB
-                    .transition(
-                        .asymmetric(
-                            insertion: .move(edge: edgeFront),
-                            removal: .move(edge: edgeBack)
-                        ))
-                    .animation(.default)
-            case 2:
-                viewC
-                    .transition(
-                        .asymmetric(
-                            insertion: .move(edge: edgeFront),
-                            removal: .move(edge: edgeBack)
-                        ))
-                    .animation(.default)
-            case 3:
-                viewD
-                    .transition(
-                        .asymmetric(
-                            insertion: .move(edge: .leading),
-                            removal: .move(edge: .trailing)
-                        ))
-                    .animation(.default)
-            default:
-                viewA
-            }
-        }
-    }
-    
-    private var viewA: some View {
-        ZStack {
-            Color(.blue).edgesIgnoringSafeArea(.all)
-            Text("A").foregroundColor(.black)
-                .onAppear{
-                    edgeFront = Edge.leading
-                    edgeBack = Edge.trailing
-                }
-        }
-    }
-    private var viewB: some View {
-        ZStack {
-            Color(.red).edgesIgnoringSafeArea(.all)
-            Text("B").foregroundColor(.black)
-                .onAppear{
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                viewSet(edgeFront: edgeFront,
+                        edgeBack: edgeBack,
+                        color: .red,
+                        text: "B")
+                    .onAppear{
                         edgeFront = Edge.leading
                         edgeBack = Edge.trailing
-                    }
                 }
-        }
-    }
-    private var viewC: some View {
-        ZStack {
-            Color(.green).edgesIgnoringSafeArea(.all)
-            Text("C").foregroundColor(.black)
-                .onAppear{
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                    edgeFront = Edge.trailing
-                    edgeBack = Edge.leading
+            case 2:
+                viewSet(edgeFront: edgeFront,
+                        edgeBack: edgeBack,
+                        color: .green,
+                        text: "C")
+                    .onAppear{
+                        edgeFront = Edge.trailing
+                        edgeBack = Edge.leading
                 }
+            case 3:
+                viewSet(edgeFront: .leading,
+                        edgeBack: .trailing,
+                        color: .orange,
+                        text: "D")
+            default:
+                viewSet(edgeFront: .trailing,
+                        edgeBack: .leading,
+                        color: .blue,
+                        text: "A")
             }
         }
     }
     
-    private var viewD: some View {
-        ZStack {
-            Color(.orange).edgesIgnoringSafeArea(.all)
-            Text("D").foregroundColor(.black)
+    func viewSet(edgeFront: Edge,
+                 edgeBack: Edge,
+                 color: UIColor,
+                 text: String) -> some View {
+       return SegmentedDesgin(edgeFront: edgeFront,
+                        edgeBack: edgeBack) {
+            SegmentedViewDesgin(color: color,
+                                text: text,
+                                edgeFront: edgeFront,
+                                edgeBack: edgeBack)
+        }
+    }
+}
+
+@available(iOS 14.0, *)
+struct SegmentedViewDesgin: View {
+
+    @State var color: UIColor
+    @State var text: String
+    @State var edgeFront: Edge
+    @State var edgeBack: Edge
+
+    var body: some View {
+         ZStack {
+            Color(color).edgesIgnoringSafeArea(.all)
+            Text(text).foregroundColor(.black)
                 .onAppear{
-                    edgeFront = Edge.trailing
-                    edgeBack = Edge.leading
+                    edgeFront = edgeFront
+                    edgeBack = edgeFront
                 }
         }
     }
+}
+@available(iOS 14.0, *)
+struct SegmentedDesgin<Content:View>: View {
+
+    @State var edgeFront: Edge
+    @State var edgeBack: Edge
+
+        let viewBuilder: () -> Content
+        var body: some View {
+            viewBuilder()
+                .transition(
+                    .asymmetric(
+                        insertion: .move(edge: edgeFront),
+                        removal: .move(edge: edgeBack)
+                    ))
+                .animation(.default)
+        }
 }
 
 @available(iOS 14.0, *)
