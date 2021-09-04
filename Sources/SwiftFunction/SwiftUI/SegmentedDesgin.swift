@@ -80,12 +80,24 @@ struct SegmentedView: View {
         ZStack {
             Color(.red).edgesIgnoringSafeArea(.all)
             Text("B").foregroundColor(.black)
+                .onAppear{
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                        edgeFront = Edge.leading
+                        edgeBack = Edge.trailing
+                    }
+                }
         }
     }
     private var viewC: some View {
         ZStack {
             Color(.green).edgesIgnoringSafeArea(.all)
             Text("C").foregroundColor(.black)
+                .onAppear{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                    edgeFront = Edge.trailing
+                    edgeBack = Edge.leading
+                }
+            }
         }
     }
     
