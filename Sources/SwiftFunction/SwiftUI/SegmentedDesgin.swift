@@ -43,7 +43,7 @@ struct SegmentedView: View {
                             insertion: .move(edge: edgeFront),
                             removal: .move(edge: edgeBack)
                         ))
-                    .animation(.easeInOut)
+                    .animation(.default)
             case 2:
                 viewC
                     .transition(
@@ -51,7 +51,7 @@ struct SegmentedView: View {
                             insertion: .move(edge: edgeFront),
                             removal: .move(edge: edgeBack)
                         ))
-                    .animation(.easeInOut)
+                    .animation(.default)
             case 3:
                 viewD
                     .transition(
