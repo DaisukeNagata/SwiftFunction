@@ -70,8 +70,8 @@ struct SegmentedView: View {
                  edgeBack: Edge,
                  color: UIColor,
                  text: String) -> some View {
-       return SegmentedDesgin(edgeFront: edgeFront,
-                        edgeBack: edgeBack) {
+        return SegmentedDesgin(edgeFront: edgeFront,
+                               edgeBack: edgeBack) {
             SegmentedViewDesgin(color: color,
                                 text: text,
                                 edgeFront: edgeFront,
