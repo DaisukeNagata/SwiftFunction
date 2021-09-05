@@ -50,8 +50,8 @@ struct Segmented2View: View {
                 }
                 .transition(
                     .asymmetric(
-                        insertion: .move(edge:  .trailing),
-                        removal: .move(edge: .leading)
+                        insertion: .move(edge:  .leading),
+                        removal: .move(edge: .trailing)
                     ))
                 .animation(.default)
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
