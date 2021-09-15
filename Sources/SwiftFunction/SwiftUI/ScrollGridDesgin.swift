@@ -13,10 +13,11 @@ struct ScrollGridView: View {
         ScrollView {
             ForEach((0...4), id: \.self) { row in
                 HStack {
-                    ForEach((1...4), id: \.self) { column in
+                    ForEach((0...4), id: \.self) { column in
                         Text("\(row*4+column)")
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .padding(.all, 30)
+                            .padding(.trailing, 5)
+                            .padding(.top, 30)
                     }
                 }
             }
