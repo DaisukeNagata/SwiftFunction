@@ -5,6 +5,7 @@
 //  Created by 永田大祐 on 2021/07/06.
 //
 
+@available(iOS 15.0, *)
 public class AsyncAwaitFunction {
 
     public func process() async {

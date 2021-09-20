@@ -1,6 +1,7 @@
 import XCTest
 @testable import SwiftFunction
 
+@available(iOS 15.0, *)
 final class SwiftFunctionTests: XCTestCase, Copyable {
 
     func copy222(count: Int) -> Self {

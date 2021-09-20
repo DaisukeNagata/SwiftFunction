@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 public class ActorFunction {
     public actor Counter {
         var value = 0
