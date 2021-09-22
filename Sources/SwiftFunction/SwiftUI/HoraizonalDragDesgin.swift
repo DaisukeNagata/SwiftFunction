@@ -18,25 +18,28 @@ struct HoraizonalDragDesginView: View {
             GeometryReader { geometry in
                 Color.clear
             }
-            ScrollView(.horizontal) {
-                LazyHStack(spacing : 15) {
-                    ForEach(items, id:\.self) { item in
-                        Text(item)
-                            .frame(width: 50, height: 50)
-                            .border(Color.black).background(Color.red)
-                            .onDrag({
-                                self.draggedItem = item
-                                return NSItemProvider(item: nil, typeIdentifier: item)
-                            })
-                            .onDrop(of: [UTType.text],
-                                    delegate: MyDropDelegate(item: item,
-                                                             items: $items,
-                                                             draggedItem: $draggedItem))
+            GeometryReader { geometry in
+                ScrollView(.horizontal) {
+                    LazyHStack(spacing : 15) {
+                        ForEach(items, id:\.self) { item in
+                            Text(item)
+                                .frame(width: geometry.size.width/2, height: 50)
+                                .border(Color.blue).background(Color.red)
+                                .cornerRadius(10)
+                                .onDrag({
+                                    self.draggedItem = item
+                                    return NSItemProvider(item: nil, typeIdentifier: item)
+                                })
+                                .onDrop(of: [UTType.text],
+                                        delegate: MyDropDelegate(item: item,
+                                                                 items: $items,
+                                                                 draggedItem: $draggedItem))
+                        }
                     }
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: 50)
-            .border(Color.black).background(Color.black)
+            .background(Color.black)
         }
     }
 }
@@ -63,7 +66,6 @@ struct MyDropDelegate : DropDelegate {
             self.items.move(fromOffsets: IndexSet(integer: from),
                             toOffset: to > from ? to + 1 : to)
         }
-        
     }
 }
 
