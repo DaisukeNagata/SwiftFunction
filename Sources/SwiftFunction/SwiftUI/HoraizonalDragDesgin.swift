@@ -43,7 +43,8 @@ struct HoraizonalDragDesginView: View {
         }
     }
 }
-@available(iOS 15.0, *)
+
+@available(iOS 15.0.0, *)
 struct MyDropDelegate : DropDelegate {
     let item : String
     @Binding var items : [String]
