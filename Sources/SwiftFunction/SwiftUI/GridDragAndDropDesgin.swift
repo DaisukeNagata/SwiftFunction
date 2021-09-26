@@ -22,26 +22,25 @@ struct GridContentView: View {
 @available(iOS 14.0, *)
 struct GridDragAndDropView: View {
     var body: some View {
-        VStack(spacing: 0) {
-            Color.clear.frame(height: 100)
+        VStack(spacing: 5) {
+            Color.clear.frame(height: UIScreen.main.bounds.height/9)
             ForEach((0...5), id: \.self) { row in
                 HStack {
                     ForEach((1...5), id: \.self) { column in
-                        VStack {
-                            Color.clear.frame(height: 5)
-                            GridDragAndDropDesgin(delegate: GridImageData())
-                                .frame(width: 60, height: 60)
-                                .background(Color.blue)
-                        }
+                        GridDragAndDropDesgin(delegate: GridImageData())
+                            .frame(width: UIScreen.main.bounds.width/7,
+                                   height: UIScreen.main.bounds.width/7)
+                            .background(Color.blue)
                     }
                 }
             }
+
             List(GridImageData().totalImages, id: \.image) { image in
                 HStack {
                     Text((image.id + 1).description)
                     Image(image.image)
                         .resizable()
-                        .frame(width: 60, height: 60)
+                        .frame(width: UIScreen.main.bounds.width/8, height: UIScreen.main.bounds.width/8)
                         .cornerRadius(15)
                         .onDrag {
                             NSItemProvider(item: .some(URL(string: image.image)! as NSSecureCoding),
@@ -49,8 +48,8 @@ struct GridDragAndDropView: View {
                         }
                 }
             }
-            .padding(.all)
         }
+        .padding(.horizontal, UIScreen.main.bounds.width/10)
         .background(Color.black.opacity(0.5))
         .edgesIgnoringSafeArea(.all)
     }
@@ -63,14 +62,15 @@ struct GridDragAndDropDesgin: View {
     var columns: [GridItem] = Array(repeating: .init(.fixed(0)), count: 1)
     
     var body: some View {
-        ScrollView(.horizontal) {
-            LazyHGrid(rows: columns, alignment: .center) {
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHGrid(rows: columns) {
                 ForEach(delegate.selectedImages) { image in
                     ZStack(alignment: Alignment(horizontal: .center,
                                                 vertical: .top)) {
                         Image(image.image)
                             .resizable()
-                            .frame(width: 25, height: 25)
+                            .frame(width: UIScreen.main.bounds.width/15,
+                                   height: UIScreen.main.bounds.width/15)
                             .cornerRadius(5).onAppear {
                                 print(image.image)
                             }
@@ -87,7 +87,7 @@ struct GridDragAndDropDesgin: View {
                 }
             }
         }
-        .padding(.horizontal)
+        .offset(x: (UIScreen.main.bounds.width/7)/4)
         .onDrop(of: [String(kUTTypeURL)], delegate: delegate)
     }
 }
