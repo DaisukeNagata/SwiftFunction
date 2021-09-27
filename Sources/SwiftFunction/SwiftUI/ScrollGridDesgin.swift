@@ -16,8 +16,7 @@ struct ScrollGridView: View {
                     ForEach((1...10), id: \.self) { column in
                         Text("\(row*10+column)")
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .padding(.trailing, 5)
-                            .padding(.top, 30)
+                            .padding(.vertical, 20)
                     }
                 }
             }
