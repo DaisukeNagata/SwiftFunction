@@ -11,9 +11,9 @@ import SwiftUI
 struct ScrollGridView: View {
     var body: some View {
         ScrollView {
-            ForEach((0...9), id: \.self) { row in
+            ForEach(0...9, id: \.self) { row in
                 HStack {
-                    ForEach((1...10), id: \.self) { column in
+                    ForEach(1...10, id: \.self) { column in
                         Text("\(row*10+column)")
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .padding(.vertical, 20)
