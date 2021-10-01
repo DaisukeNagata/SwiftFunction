@@ -22,10 +22,12 @@ struct DarkModeCheckDesginView: View {
     var body: some View {
         VStack {
             Text(colorScheme == .dark ? "In dark mode" : "In light mode")
+                .foregroundColor(colorScheme == .dark ?
+                                    .gray :
+                                    .black)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.black)
-        
     }
 }
 
