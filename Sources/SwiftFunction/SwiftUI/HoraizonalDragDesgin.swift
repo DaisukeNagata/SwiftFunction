@@ -15,9 +15,7 @@ struct HoraizonalDragDesginView: View {
     @State var draggedItem : String?
     var body: some View {
         VStack {
-            GeometryReader { geometry in
-                Color.clear
-            }
+            Spacer()
             GeometryReader { geometry in
                 ScrollView(.horizontal) {
                     LazyHStack(spacing : 15) {

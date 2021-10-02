@@ -11,8 +11,8 @@ import UniformTypeIdentifiers
 @available(iOS 15.0.0, *)
 struct HoraizonalDragCarouselView: View {
 
+    @State var draggedItem: String?
     let itemPadding: CGFloat = 20
-    @State var draggedItem : String?
     @State private var currentIndex = 0
     @State var items = ["1","2","3","4","5","6","7","8","9"]
 
@@ -24,7 +24,8 @@ struct HoraizonalDragCarouselView: View {
                     ForEach(items, id:\.self) { item in
                         Text(item)
                             .frame(width: geometry.size.width/2, height: 50)
-                            .border(Color.blue).background(Color.red)
+                            .border(Color.blue)
+                            .background(Color.red)
                             .cornerRadius(10)
                             .onDrag({
                                 self.draggedItem = item
