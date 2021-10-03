@@ -1,5 +1,5 @@
 //
-//  SetDesgin.swift
+//  SetDesginView.swift
 //  
 //
 //  Created by 永田大祐 on 2021/06/22.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 14.0, *)
-struct ContentView: View {
+struct SetDesginView: View {
     public var body: some View {
         VStack {
             SetDesgin(c: Color.red) { Text("name") }
@@ -32,8 +32,8 @@ struct SetDesgin<Content:View>: View {
 }
 
 @available(iOS 14.0, *)
-struct ContentView_Previews : PreviewProvider {
+struct SetDesginView_Previews : PreviewProvider {
     static var previews: some View {
-    ContentView()
+        SetDesginView()
   }
 }

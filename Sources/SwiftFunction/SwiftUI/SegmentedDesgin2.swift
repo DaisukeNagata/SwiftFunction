@@ -1,6 +1,6 @@
 //
-//  SegmentedDesgin2.swift
-//  SegmentedDesgin2
+//  Segmented2View.swift
+//
 //
 //  Created by 永田大祐 on 2021/09/06.
 //

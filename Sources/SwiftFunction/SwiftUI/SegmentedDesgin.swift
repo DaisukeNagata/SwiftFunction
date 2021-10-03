@@ -1,6 +1,6 @@
 //
 //  SegmentedView.swift
-//  SegmentedView
+//  
 //
 //  Created by 永田大祐 on 2021/09/04.
 //

@@ -1,6 +1,6 @@
 //
 //  CirecleView.swift
-//  SwiftUIView
+//  
 //
 //  Created by 永田大祐 on 2021/08/20.
 //
