@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  SearchView.swift
 //  
 //
 //  Created by 永田大祐 on 2021/09/29.

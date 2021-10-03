@@ -11,7 +11,7 @@ import UniformTypeIdentifiers
 @available(iOS 15.0.0, *)
 struct HoraizonalDragDesginView: View {
 
-    @State var items = ["1","2","3","4", "5","6","7","8","9"]
+    @State var items = ["1","2","3","4","5","6","7","8","9"]
     @State var draggedItem : String?
     var body: some View {
         VStack {
@@ -22,7 +22,8 @@ struct HoraizonalDragDesginView: View {
                         ForEach(items, id:\.self) { item in
                             Text(item)
                                 .frame(width: geometry.size.width/2, height: 50)
-                                .border(Color.blue).background(Color.red)
+                                .border(Color.blue)
+                                .background(Color.red)
                                 .cornerRadius(10)
                                 .onDrag({
                                     self.draggedItem = item

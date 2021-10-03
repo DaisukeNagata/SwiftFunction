@@ -21,7 +21,7 @@ struct CirecleView: View {
                 .animation(.default)
  
             VStack {
-                Spacer()
+                Color.clear.frame(height: 220)
                 Button("アニメーション") {
                     self.flag.toggle()
                 }
