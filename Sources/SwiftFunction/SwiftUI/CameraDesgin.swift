@@ -49,12 +49,20 @@ struct CameraButtonsView: View {
                         Image(systemName: "camera.circle.fill")
                             .renderingMode(.original)
                             .resizable()
-                            .frame(width: 50, height: 50, alignment: .center)
+                            .frame(width: 50,
+                                   height: 50,
+                                   alignment: .center)
                     } else {
-                        Spacer()
+                        Color.clear
+                            .frame(width: 50,
+                                   height: 50)
                         Text(text[i])
-                            .frame(width: 50, height: 50, alignment: .center)
-                        Spacer()
+                            .frame(width: 50,
+                                   height: 50,
+                                   alignment: .center)
+                        Color.clear
+                            .frame(width: 50,
+                                   height: 50)
                     }
                 }
             }
