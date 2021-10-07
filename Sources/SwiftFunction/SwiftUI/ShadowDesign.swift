@@ -17,6 +17,12 @@ struct ShadowView: View {
                         x: 0,
                         y: 30)
                 .font(.largeTitle)
+            /*
+             .background(Color.blue)
+             .compositingGroup()
+             .shadow(color: .gray, radius: 3, x: 0, y: 20)
+             .font(.largeTitle)
+             */
         }
     }
 }
