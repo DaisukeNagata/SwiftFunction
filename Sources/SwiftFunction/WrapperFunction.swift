@@ -13,7 +13,6 @@ public class WrapperFunction {
         public var wrappedValue: Value
         
         public var projectedValue: Self {
-            
             return self
         }
         

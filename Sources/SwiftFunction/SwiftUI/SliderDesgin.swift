@@ -9,9 +9,11 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 struct SliderDesginView: View {
+
     @State var littleValue: Float = 0.5
     @State var bigValue: Float = 50
     @State var isEditing: Bool = false
+
     var body: some View {
         ZStack {
             VStack {

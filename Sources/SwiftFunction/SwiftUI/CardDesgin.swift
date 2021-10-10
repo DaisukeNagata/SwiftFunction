@@ -10,8 +10,10 @@ import SwiftUI
 final class CardListViewModel: ObservableObject {
     @Published var spIndex = [""]
 }
+
 @available(iOS 14.0, *)
 struct CardListContentView: View {
+
     @ObservedObject var viewModel = CardListViewModel()
 
     init() {

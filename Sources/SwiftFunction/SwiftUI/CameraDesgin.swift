@@ -9,6 +9,7 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 struct CameraContentView: View {
+
     var body: some View {
         VStack {
             Color.yellow

@@ -11,6 +11,7 @@ import MapKit
 
 @available(iOS 14.0, *)
 struct Location: Identifiable {
+
     let id = UUID()
     let title: String
     let coordinate: CLLocationCoordinate2D
