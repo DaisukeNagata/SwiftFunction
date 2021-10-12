@@ -23,26 +23,33 @@ struct CardListContentView: View {
         self.viewModel.spIndex = ["Apple",
                                   "Pear",
                                   "Orange",
-                                  "Cake", "Apple"+"\n"+"Pear"+"\n"+"Orange"+"\n"+"Cake"]
+                                  "Cake",
+                                  "Apple"+"\n"+
+                                  "Pear"+"\n"+
+                                  "Orange"+"\n"+"Cake"]
     }
 
     var body: some View {
-        List {
+        ScrollView {
             ForEach(self.viewModel.spIndex.indices, id: \.self) { tex in
                 CardListRow(tx: viewModel.spIndex[tex])
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                        .listRowInsets(EdgeInsets())
+                        .frame(maxWidth: .infinity,
+                               maxHeight: .infinity,
+                               alignment: .leading)
                         .background(Color.white)
             }
+            .padding(.all)
         }
     }
 }
+
 @available(iOS 14.0, *)
 struct CardListContentView_Previews: PreviewProvider {
     static var previews: some View {
         CardListContentView()
     }
 }
+
 @available(iOS 14.0, *)
 struct CardListRow: View {
     @State var tx: String
@@ -51,7 +58,9 @@ struct CardListRow: View {
             Text(tx)
                 .padding()
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity,
+               maxHeight: .infinity,
+               alignment: .leading)
         .background(Color.white)
         .cornerRadius(8)
         .shadow(radius: 6)
