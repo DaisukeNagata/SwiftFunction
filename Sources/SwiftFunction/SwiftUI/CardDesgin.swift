@@ -24,9 +24,7 @@ struct CardListContentView: View {
                                   "Pear",
                                   "Orange",
                                   "Cake",
-                                  "Apple"+"\n"+
-                                  "Pear"+"\n"+
-                                  "Orange"+"\n"+"Cake"]
+                                  "Apple"+"\n"+"Pear"+"\n"+"Orange"+"\n"+"Cake"]
     }
 
     var body: some View {
