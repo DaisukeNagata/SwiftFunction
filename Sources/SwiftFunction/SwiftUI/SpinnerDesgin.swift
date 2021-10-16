@@ -17,8 +17,10 @@ struct SpinnerView: View {
             .stroke(AngularGradient(gradient:
                             .init(colors:
                                     [Color.blue,
-                                     Color.green.opacity(0.1)]),
-                                    center: .center),
+                                     Color.green
+                                        .opacity(0.1)]),
+                                    center:
+                                        .center),
                 
                                 style: StrokeStyle(lineWidth: 10.0,
                                                    lineCap: .round))
@@ -29,7 +31,9 @@ struct SpinnerView: View {
                         .onAppear(){
                             self.anim.toggle()
                         }
-                        .frame(width: 200, height: 200, alignment: .center)
+                        .frame(width: 200,
+                               height: 200,
+                               alignment: .center)
 
     }
 }
