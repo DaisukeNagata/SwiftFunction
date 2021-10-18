@@ -11,7 +11,7 @@ import SwiftUI
 struct SearchBarView: View {
     let stArray: [String] = ["A", "B", "C", "D"]
     @State var text: String = ""
-    var filterdPokemons: [String] {
+    var texArray: [String] {
         if text.isEmpty {
             return stArray
         } else {
@@ -24,8 +24,7 @@ struct SearchBarView: View {
                 TextField("Type your search",text: $text)
                     .padding(.horizontal)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                ForEach(filterdPokemons,
-                        id: \.self) { tex in
+                ForEach(texArray, id: \.self) { tex in
                     VStack(alignment: .leading) {
                         Text(tex)
                             .padding(.leading)
