@@ -24,9 +24,10 @@ struct SearchBarView: View {
                 TextField("Type your search",text: $text)
                     .padding(.horizontal)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                ForEach(filterdPokemons, id: \.self) { pokemon in
+                ForEach(filterdPokemons,
+                        id: \.self) { tex in
                     VStack(alignment: .leading) {
-                        Text(pokemon)
+                        Text(tex)
                             .padding(.leading)
                         Divider()
                     }
