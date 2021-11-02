@@ -24,7 +24,7 @@ struct GitHUbStruct: Hashable, Identifiable, Decodable {
 @available(iOS 15.0, *)
 struct RestaurantRow: View {
     var gitHUbStruct: GitHUbStruct
-    @ObservedObject var model: gitHubModel
+    @ObservedObject var model: GitHubModel
     
     var body: some View {
         HStack {
@@ -84,7 +84,7 @@ class RemoteImageURL: ObservableObject {
 
 
 @available(iOS 15.0, *)
-final class gitHubModel: ObservableObject {
+final class GitHubModel: ObservableObject {
     
     @Published var urlPathSet = "https://api.github.com/search/users"
     @Published var users = [GitHUbStruct]()
@@ -146,7 +146,7 @@ final class gitHubModel: ObservableObject {
 @available(iOS 15.0, *)
 struct RefreshView: View {
 
-    @ObservedObject var viewModel = gitHubModel()
+    @ObservedObject var viewModel = GitHubModel()
 
     var body: some View {
         NavigationView {
