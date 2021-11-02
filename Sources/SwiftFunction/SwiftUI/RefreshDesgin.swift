@@ -21,14 +21,6 @@ struct GitHUbStruct: Hashable, Identifiable, Decodable {
     var html_url: String
 }
 
-
-@available(iOS 15.0, *)
-struct NewsItem: Decodable, Identifiable {
-    let id: Int
-    let title: String
-    let strap: String
-}
-
 @available(iOS 15.0, *)
 struct RestaurantRow: View {
     var gitHUbStruct: GitHUbStruct
@@ -161,7 +153,8 @@ struct RefreshView: View {
             List(viewModel.users) { value in
                 RestaurantRow(gitHUbStruct: value,
                               model: self.viewModel)
-            }.refreshable {
+            }
+            .refreshable {
                 self.viewModel.name = "daisuke"
                 self.viewModel.search()
             }
