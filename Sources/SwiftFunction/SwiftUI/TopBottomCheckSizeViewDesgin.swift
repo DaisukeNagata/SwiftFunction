@@ -67,6 +67,7 @@ struct NavBarAccessor: UIViewControllerRepresentable {
 struct TopBottomCheckSizeDesgin: View {
     @State private var tabBarHeight: CGFloat = 0
     @State private var naviBarHeight: CGFloat = 0
+    @State private var statusBarHeight: CGFloat = 0
     @State var b = UIColor.blue
     
     init() {
@@ -78,24 +79,32 @@ struct TopBottomCheckSizeDesgin: View {
     var body: some View {
         NavigationView {
             TabView {
-                Text("\(tabBarHeight)")
+                Text("TabBarHeight:\(tabBarHeight)")
                     .background(TabBarAccessor { tabBar in
                         tabBarHeight = tabBar.bounds.height
                         print(">> TabBar height: \(tabBar.bounds.height)")
                     })
                     .tabItem { Image(systemName: "1.circle") }
                     .tag(0)
-                Text("\(naviBarHeight)")
+                Text("statusBarHeight:\(statusBarHeight)")
                     .tabItem { Image(systemName: "2.circle") }
                     .tag(1)
+                Text("NaviBarHeight:\(naviBarHeight)")
+                    .tabItem { Image(systemName: "3.circle") }
+                    .tag(2)
             }
             .background(Color.gray)
             .navigationBarTitle("Title", displayMode: .inline)
             .background(NavBarAccessor { navBar in
+                
                 naviBarHeight = navBar.bounds.height
                 print(">> NavBar height: \(navBar.bounds.height)")
                 // !! use as needed, in calculations, @State, etc.
             })
+            .onAppear{
+                let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+                statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+            }
         }
     }
 }
