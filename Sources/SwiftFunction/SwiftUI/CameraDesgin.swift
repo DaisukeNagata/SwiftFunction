@@ -44,7 +44,7 @@ struct CameraButtonsView: View {
 
     var body: some View {
         HStack {
-            ForEach(0..<index) { i in
+            ForEach(0..<index, id: \.self) { i in
                 Button(action: {
                     print(i)
                 }) {
